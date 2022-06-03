@@ -1,0 +1,21 @@
+name: Corba
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: build corba
+      run: cd external/omniORB-4.3.0/
+    - name: configure
+      run: ./configure
