@@ -20,6 +20,10 @@ jobs:
     - name: pwd 
       run: echo `pwd`
     - name: build corba
-      run: cd external/omniORB-4.3.0/
+      run: cd external
+    - name: pwd 
+      run: echo `pwd`
+    - name: ls
+      run: echo `ls`
     - name: configure
       run: ./configure
