@@ -18,7 +18,7 @@ jobs:
     - name: pwd 
       run: echo `pwd`
     - name: goto external
-      run: cd /home/runner/work/corba_crap/corba_crap
+      run: cd /home/runner/work/corba_crap/corba_crap/external
     - name: pwd 
       run: echo `pwd`
     - name: ls
