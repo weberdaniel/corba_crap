@@ -16,13 +16,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: ls
       run: echo `ls`
-    - name: pwd 
-      run: echo `pwd`
-    - name: goto external
-      run: cd /home/runner/work/corba_crap/external
-    - name: pwd 
-      run: echo `pwd`
     - name: ls
-      run: echo `ls`
+      run: cd external/omniORB-4.3.0
     - name: configure
       run: ./configure
