@@ -16,7 +16,9 @@ jobs:
 
     steps:
     - name: ls
-      run: ls
+      run: echo `ls`
+    - name: pwd 
+      run: echo `pwd`
     - name: build corba
       run: cd external/omniORB-4.3.0/
     - name: configure
