@@ -1,0 +1,1454 @@
+Sun  9 Jan 21:59:37 GMT 2022
+============================
+
+- This is omniORB 4.3.0.
+
+
+Sun  9 Jan 21:42:12 GMT 2022
+============================
+
+- Bump suggested Python version to 3.10 in platform makefiles.
+
+mk/platforms/x86_win32_vs_10.mk
+mk/platforms/x86_win32_vs_11.mk
+mk/platforms/x86_win32_vs_12.mk
+mk/platforms/x86_win32_vs_14.mk
+mk/platforms/x86_win32_vs_15.mk
+mk/platforms/x86_win32_vs_16.mk
+
+- Fix VC++ build error.
+
+src/tool/omniidl/cxx/dir.mk
+
+
+Sun  9 Jan 15:08:22 GMT 2022
+============================
+
+- Updates for 4.3.0 release.
+
+README.FIRST.txt
+ReleaseNotes.txt
+contrib/RPMs/omniORB.spec
+mk/version.mk
+
+
+Sun  9 Jan 14:45:23 GMT 2022
+============================
+
+- Use correct path in http transport publish spec.
+
+src/lib/omniORB/orbcore/http/httpEndpoint.cc
+
+
+Sun 21 Nov 14:22:17 GMT 2021
+============================
+
+- No longer use -flat_namespace on Mac OS.
+
+mk/beforeauto.mk.in
+
+
+Sun 31 Oct 18:09:45 GMT 2021
+============================
+
+- Support Python 3.10.
+
+mk/python.mk
+
+
+Sun 31 Oct 17:41:18 GMT 2021
+============================
+
+- Minor build / warning tweaks.
+
+src/lib/omniORB/dynamic/dynAny.cc
+src/lib/omniORB/dynamic/serverRequest.cc
+src/lib/omniORB/orbcore/giopRope.cc
+src/tool/omniidl/cxx/cccp/config.h
+src/tool/omniidl/cxx/dir.mk
+src/tool/omniidl/cxx/idlpython.cc
+src/tool/omniidl/cxx/idlsysdep.h
+
+
+Fri 28 May 14:03:16 BST 2021
+============================
+
+- Add missing include in omkdepend on win32. Thanks Daniel Laugt.
+
+src/tool/omkdepend/pr.c
+
+
+Sun 11 Apr 13:53:42 BST 2021
+============================
+
+- Support zstd in ZIOP.
+
+README.unix.txt
+acinclude.m4
+aclocal.m4
+configure.ac
+configure
+idl/compression.idl
+include/omniORB4/acconfig_pre.h.in
+mk/beforeauto.mk.in
+mk/platforms/x86_win32_vs_10.mk
+mk/platforms/x86_win32_vs_11.mk
+mk/platforms/x86_win32_vs_12.mk
+mk/platforms/x86_win32_vs_14.mk
+mk/platforms/x86_win32_vs_15.mk
+mk/platforms/x86_win32_vs_16.mk
+src/examples/ziop/ziop_impl.cc
+src/lib/omniORB/ziop/dir.mk
+src/lib/omniORB/ziop/omniZIOP.cc
+src/lib/omniORB/ziop/zlibCompressor.cc
+src/lib/omniORB/ziop/zstdCompressor.cc
+src/lib/omniORB/ziop/zstdCompressor.h
+
+
+Thu  8 Apr 18:47:56 BST 2021
+============================
+
+- Use correct compression level and buffer size in ZIOP.
+
+src/lib/omniORB/ziop/omniZIOP.cc
+
+- Support -j make flag.
+
+mk/beforeauto.mk.in
+
+
+Mon 15 Mar 17:34:15 GMT 2021
+============================
+
+- Fix minor leak of adapter name in adapter activator.
+
+src/lib/omniORB/orbcore/poa.cc
+
+
+Sat 13 Mar 22:42:09 GMT 2021
+============================
+
+- Re-enable make -j.
+
+mk/beforeauto.mk.in
+
+
+Mon  8 Mar 13:09:56 GMT 2021
+============================
+
+- Properly count arguments in omniMapper.
+
+src/appl/omniMapper/omniMapper.cc
+
+
+Mon  8 Mar 11:10:39 GMT 2021
+============================
+
+- Revert change to allow -j flags though, because it breaks RPM builds.
+
+mk/beforeauto.mk.in
+
+
+Mon  1 Mar 00:14:38 GMT 2021
+============================
+
+- Make rule updates.
+
+configure.ac
+configure
+mk/beforeauto.mk.in
+mk/java.mk
+mk/linux.mk
+mk/platforms/rtems.mk
+mk/platforms/x86_ets.mk
+mk/rtems.mk
+mk/vxWorks.mk
+src/dir.mk
+src/lib/omniORB/dir.mk
+
+
+Sun 17 Jan 16:36:47 GMT 2021
+============================
+
+- In detached threads, keep per-thread data until destructor; for
+  undetached ones, ensure that later use of per-thread data fails
+  cleanly.
+
+src/lib/omnithread/nt.cc
+src/lib/omnithread/posix.cc
+
+
+Thu 31 Dec 18:09:21 GMT 2020
+============================
+
+- Correct capitalisation of TimeOut in docs and sample.cfg. Thanks
+  Luke Deller.
+
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB001.html
+doc/omniORB/omniORB002.html
+doc/omniORB/omniORB003.html
+doc/omniORB/omniORB004.html
+doc/omniORB/omniORB005.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/tex/omniORB.tex
+sample.cfg
+
+
+Wed  4 Nov 15:26:54 GMT 2020
+============================
+
+- Correctly set OpenSSL cipher list.
+
+src/lib/omniORB/orbcore/ssl/sslContext.cc
+
+
+Mon 26 Oct 22:03:22 GMT 2020
+============================
+
+- Convert std::bad_alloc during call marshalling into CORBA::NO_MEMORY.
+
+include/omniORB4/callDescriptor.h
+src/lib/omniORB/orbcore/inProcessIdentity.cc
+src/lib/omniORB/orbcore/localIdentity.cc
+src/lib/omniORB/orbcore/omniObjRef.cc
+src/lib/omniORB/orbcore/remoteIdentity.cc
+
+
+Mon 21 Sep 23:24:27 BST 2020
+============================
+
+- Remove stray #endif.
+
+include/omniORB4/CORBA_sysdep_trad.h
+
+
+Mon 21 Sep 22:46:33 BST 2020
+============================
+
+- Clean up and rationalise platform dependencies.
+
+acinclude.m4
+configure.ac
+configure
+idl/corbaidl.idl
+include/omniORB4/CORBA_Any.h
+include/omniORB4/CORBA_Any_vartypes.h
+include/omniORB4/CORBA_Fixed.h
+include/omniORB4/CORBA_TypeCode.h
+include/omniORB4/CORBA_basetypes.h
+include/omniORB4/CORBA_primitive_types.h
+include/omniORB4/CORBA_sysdep.h
+include/omniORB4/CORBA_sysdep_auto.h
+include/omniORB4/CORBA_sysdep_trad.h
+include/omniORB4/acconfig.h.in
+include/omniORB4/acconfig_pre.h.in
+include/omniORB4/cdrStream.h
+include/omniORB4/codeSets.h
+include/omniORB4/dynAny.h
+include/omniORB4/fixed.h
+include/omniORB4/internal/codeSetUtil.h
+include/omniORB4/internal/dynAnyImpl.h
+include/omniORB4/internal/libcWrapper.h
+include/omniORB4/internal/tcpSocket.h
+include/omniORB4/local_config.h
+include/omniORB4/omniInternal.h
+include/omniORB4/omniORB.h
+include/omniORB4/seqTemplatedefns.h
+include/omniORB4/stringtypes.h
+include/omniORB4/tracedthread.h
+include/omniORB4/wstringtypes.h
+include/omniconfig.h
+src/appl/omniMapper/omniMapper.cc
+src/appl/omniNames/NamingContext_i.cc
+src/appl/omniNames/log.cc
+src/appl/omniNames/log.h
+src/appl/omniNames/omniNames.cc
+src/appl/omniNames/omniNamesWin.cc
+src/appl/utils/catior/catior.cc
+src/appl/utils/convertior/convertior.cc
+src/appl/utils/genior/genior.cc
+src/appl/utils/nameclt/nameclt.cc
+src/examples/ami/echo_callback.cc
+src/examples/ami/echo_dii_pollable_set.cc
+src/examples/ami/echo_pollable_set.cc
+src/examples/ami/echo_poller.cc
+src/examples/anyExample/anyExample_clt.cc
+src/examples/anyExample/anyExample_impl.cc
+src/examples/bidir/bd_client.cc
+src/examples/bidir/bd_server.cc
+src/examples/bidir/bd_shutdown.cc
+src/examples/boa/eg2_impl.cc
+src/examples/call_back/cb_client.cc
+src/examples/call_back/cb_server.cc
+src/examples/call_back/cb_shutdown.cc
+src/examples/dii/echo_diiclt.cc
+src/examples/dsi/echo_dsiimpl.cc
+src/examples/echo/eg1.cc
+src/examples/echo/eg2_clt.cc
+src/examples/echo/eg2_impl.cc
+src/examples/echo/eg3_clt.cc
+src/examples/echo/eg3_impl.cc
+src/examples/echo/eg3_tieimpl.cc
+src/examples/poa/implicit_activation/eg1.cc
+src/examples/poa/persistent_objref/eg2_impl.cc
+src/examples/poa/servant_manager/servant_activator.cc
+src/examples/poa/servant_manager/servant_locator.cc
+src/examples/poa/shortcut/shortcut.cc
+src/examples/poa/threading/mainthread.cc
+src/examples/ssl_echo/eg2_clt.cc
+src/examples/ssl_echo/eg2_impl.cc
+src/examples/thread/diner.cc
+src/examples/thread/prio.cc
+src/examples/thread/prodcons.cc
+src/examples/thread/thrspecdata.cc
+src/examples/valuetype/simple/vclient.cc
+src/examples/valuetype/simple/vcoloc.cc
+src/examples/valuetype/simple/vserver.cc
+src/lib/omniORB/codesets/cs-UCS-4.cc
+src/lib/omniORB/dynamic/any.cc
+src/lib/omniORB/dynamic/dynAny.cc
+src/lib/omniORB/dynamic/dynAnyNil.cc
+src/lib/omniORB/dynamic/dynException.cc
+src/lib/omniORB/dynamic/dynamicImplementation.cc
+src/lib/omniORB/dynamic/policy.cc
+src/lib/omniORB/dynamic/tcParser.cc
+src/lib/omniORB/dynamic/typecode.cc
+src/lib/omniORB/dynamic/valueFactory.cc
+src/lib/omniORB/dynamic/valueType.cc
+src/lib/omniORB/orbcore/GIOP_S.cc
+src/lib/omniORB/orbcore/callHandle.cc
+src/lib/omniORB/orbcore/cdrMemoryStream.cc
+src/lib/omniORB/orbcore/cdrStream.cc
+src/lib/omniORB/orbcore/constants.cc
+src/lib/omniORB/orbcore/corbaBoa.cc
+src/lib/omniORB/orbcore/corbaFixed.cc
+src/lib/omniORB/orbcore/corbaOrb.cc
+src/lib/omniORB/orbcore/cs-16bit.cc
+src/lib/omniORB/orbcore/cs-UTF-16.cc
+src/lib/omniORB/orbcore/cs-UTF-8.cc
+src/lib/omniORB/orbcore/giopBiDir.cc
+src/lib/omniORB/orbcore/giopStreamImpl.cc
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/inProcessIdentity.cc
+src/lib/omniORB/orbcore/libcWrapper.cc
+src/lib/omniORB/orbcore/localIdentity.cc
+src/lib/omniORB/orbcore/localObject.cc
+src/lib/omniORB/orbcore/logIOstream.cc
+src/lib/omniORB/orbcore/omniInternal.cc
+src/lib/omniORB/orbcore/omniPolicy.cc
+src/lib/omniORB/orbcore/poa.cc
+src/lib/omniORB/orbcore/policy.cc
+src/lib/omniORB/orbcore/portableserver.cc
+src/lib/omniORB/orbcore/tcp/tcpTransportImpl.cc
+src/lib/omniORB/orbcore/tcpSocket.cc
+src/lib/omniORB/orbcore/tracedthread.cc
+src/lib/omniORB/orbcore/uri.cc
+src/lib/omniORB/python2/omniidl_be/cxx/dynskel/template.py
+src/lib/omniORB/python2/omniidl_be/cxx/header/template.py
+src/lib/omniORB/python2/omniidl_be/cxx/skel/template.py
+src/lib/omniORB/python2/omniidl_be/cxx/skutil.py
+src/lib/omniORB/python2/omniidl_be/cxx/value.py
+src/lib/omniORB/python3/omniidl_be/cxx/dynskel/template.py
+src/lib/omniORB/python3/omniidl_be/cxx/header/template.py
+src/lib/omniORB/python3/omniidl_be/cxx/skel/template.py
+src/lib/omniORB/python3/omniidl_be/cxx/skutil.py
+src/lib/omniORB/python3/omniidl_be/cxx/value.py
+src/lib/omnithread/posix.cc
+src/tool/omniidl/cxx/cccp/alloca.c
+src/tool/omniidl/cxx/cccp/cccp.c
+src/tool/omniidl/cxx/cccp/cexp.c
+src/tool/omniidl/cxx/cccp/config-aix.h
+src/tool/omniidl/cxx/cccp/config-darwin.h
+src/tool/omniidl/cxx/cccp/config-freebsd.h
+src/tool/omniidl/cxx/cccp/config-hpux.h
+src/tool/omniidl/cxx/cccp/config-irix.h
+src/tool/omniidl/cxx/cccp/config-linux.h
+src/tool/omniidl/cxx/cccp/config-lynxos.h
+src/tool/omniidl/cxx/cccp/config-nextstep.h
+src/tool/omniidl/cxx/cccp/config-osf1.h
+src/tool/omniidl/cxx/cccp/config-sinix.h
+src/tool/omniidl/cxx/cccp/config-solaris.h
+src/tool/omniidl/cxx/cccp/config-vms.h
+src/tool/omniidl/cxx/cccp/config-windows.h
+src/tool/omniidl/cxx/cccp/config.h
+src/tool/omniidl/cxx/cccp/dir.mk
+src/tool/omniidl/cxx/idlast.cc
+src/tool/omniidl/cxx/idlast.h
+src/tool/omniidl/cxx/idldump.cc
+src/tool/omniidl/cxx/idlexpr.cc
+src/tool/omniidl/cxx/idlexpr.h
+src/tool/omniidl/cxx/idlmath.h
+src/tool/omniidl/cxx/idlpython.cc
+src/tool/omniidl/cxx/idlsysdep.h
+src/tool/omniidl/cxx/idlutil.cc
+src/tool/omniidl/cxx/idlutil.h
+
+
+Sat 29 Aug 22:43:10 BST 2020
+============================
+
+- Remove long obsolete services headers.
+
+src/services/include
+src/services/include/BootStrapAgent.h
+src/services/include/CosNaming_i.h
+src/services/include/CosNotify.h
+src/services/include/CosNotifyComm_i.h
+src/services/include/corba_wrappers.h
+
+
+Sat 29 Aug 17:36:51 BST 2020
+============================
+
+- Remove invalid end-of-line comment in sample config file.
+
+sample.cfg
+
+
+Tue 18 Aug 22:43:08 BST 2020
+============================
+
+- Fix overlapping strcpy in omkdepend.
+
+src/tool/omkdepend/parse.c
+
+
+Sat 20 Jun 23:07:40 BST 2020
+============================
+
+- Fix marshalling of exceptions in Anys, for interoperability with
+  omniORBpy and JacORB. New exceptionIdInAny configuration option to
+  switch to previous behaviour.
+
+ReleaseNotes.txt
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB003.html
+doc/omniORB/omniORB004.html
+doc/omniORB/omniORB005.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/tex/omniORB.tex
+include/omniORB4/CORBA_Any.h
+include/omniORB4/internal/orbParameters.h
+include/omniORB4/internal/typecode.h
+include/omniORB4/sslContext.h
+sample.cfg
+sample.reg
+src/lib/omniORB/dynamic/any.cc
+src/lib/omniORB/dynamic/dynException.cc
+src/lib/omniORB/dynamic/policy.cc
+src/lib/omniORB/dynamic/tcParser.cc
+src/lib/omniORB/dynamic/typecode.cc
+src/lib/omniORB/dynamic/unknownUserExn.cc
+src/lib/omniORB/orbcore/dynamicLib.cc
+src/lib/omniORB/orbcore/ssl/sslContext.cc
+src/lib/omniORB/python2/omniidl_be/cxx/dynskel/template.py
+src/lib/omniORB/python3/omniidl_be/cxx/dynskel/template.py
+
+
+Sat 13 Jun 22:58:23 BST 2020
+============================
+
+- Avoid clash with C++20 "requires" keyword.
+
+include/omniORB4/omniIOR.h
+src/lib/omniORB/orbcore/ior.cc
+
+
+Fri  5 Jun 00:47:50 BST 2020
+============================
+
+- Documentation and example updates.
+
+ReleaseNotes.txt
+doc/omniNames.html
+doc/omniNames.pdf
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB001.html
+doc/omniORB/omniORB002.html
+doc/omniORB/omniORB003.html
+doc/omniORB/omniORB004.html
+doc/omniORB/omniORB005.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/omniidl.html
+doc/omniidl.pdf
+doc/omnithread.html
+doc/omnithread.pdf
+doc/tex/omniNames.tex
+doc/tex/omniORB.tex
+doc/tex/omniidl.tex
+doc/tex/omnithread.tex
+doc/tex/utilities.tex
+doc/utilities.html
+doc/utilities.pdf
+src/examples/echo/eg3_clt.cc
+src/examples/echo/eg3_impl.cc
+src/examples/echo/eg3_tieimpl.cc
+
+
+Fri  5 Jun 00:45:37 BST 2020
+============================
+
+- Plain object keys policy.
+
+include/omniORB4/internal/poaimpl.h
+include/omniORB4/omniPolicy.h
+src/lib/omniORB/dynamic/policy.cc
+src/lib/omniORB/orbcore/omniPolicy.cc
+src/lib/omniORB/orbcore/poa.cc
+
+
+Sun 31 May 15:05:09 BST 2020
+============================
+
+- Use omni namespace in SSL examples.
+
+src/examples/ssl_echo/eg2_clt.cc
+src/examples/ssl_echo/eg2_impl.cc
+
+
+Wed 13 May 00:11:25 BST 2020
+============================
+
+- All in-use Darwin versions now apparently have a working poll().
+
+include/omniORB4/internal/tcpSocket.h
+
+
+Mon 11 May 23:36:59 BST 2020
+============================
+
+- Rename python directories to python2.
+
+configure.ac
+configure
+src/lib/omniORB/dir.mk
+src/lib/omniORB/python
+src/lib/omniORB/python2
+src/tool/omniidl/python2
+
+
+Mon 11 May 23:48:37 BST 2020
+============================
+
+- Merge fixes from 4_2.
+
+include/omniORB4/internal/tcpSocket.h
+include/omnithread.h
+src/lib/omniORB/orbcore/ssl/sslConnection.cc
+src/lib/omniORB/orbcore/tcp/tcpConnection.cc
+src/lib/omniORB/orbcore/tcpSocket.cc
+src/lib/omniORB/orbcore/unix/unixConnection.cc
+src/tool/omniidl/cxx/idlscope.cc
+
+
+Mon 11 May 23:44:12 BST 2020
+============================
+
+- Update release notes.
+
+ReleaseNotes.txt
+
+
+Wed 29 Apr 21:38:14 BST 2020
+============================
+
+- Avoid warning about virtual functions shadowing each other.
+
+src/lib/omniORB/python/omniidl_be/cxx/value.py
+src/lib/omniORB/python3/omniidl_be/cxx/value.py
+
+
+Mon 27 Apr 17:47:44 BST 2020
+============================
+
+- Avoid temporary Any when marshalling nested Any. It led to
+  exponential performance with deeply nested Anys.
+
+src/lib/omniORB/dynamic/tcParser.cc
+
+
+Mon 27 Apr 17:46:11 BST 2020
+============================
+
+- Use -O3 by default.
+
+configure.ac
+configure
+
+
+Fri 24 Apr 22:14:35 BST 2020
+============================
+
+- Improve MessageError logging.
+
+src/lib/omniORB/orbcore/giopImpl10.cc
+src/lib/omniORB/orbcore/giopImpl11.cc
+src/lib/omniORB/orbcore/giopImpl12.cc
+
+
+Mon  6 Apr 12:16:47 BST 2020
+============================
+
+- Updates for 4.3.0 beta 1.
+
+README.FIRST.txt
+ReleaseNotes.txt
+THIS_IS_OMNIORB_4_3_0_BETA_1
+THIS_IS_OMNIORB_4_3_PRE
+mk/version.mk
+
+
+Mon  6 Apr 09:47:37 BST 2020
+============================
+
+- Remove deprecated_hold_lock parameter that was retained for ABI
+  compatibility.
+
+include/omniORB4/internal/SocketCollection.h
+src/lib/omniORB/orbcore/SocketCollection.cc
+
+
+Mon  6 Apr 00:05:55 BST 2020
+============================
+
+- Merge from 4.2.4.
+
+omniORB/ReleaseChecklist.txt
+
+
+Tue 24 Mar 22:13:30 GMT 2020
+============================
+
+- Avoid some warnings.
+
+include/omniORB4/giopEndpoint.h
+src/lib/omniORB/orbcore/SocketCollection.cc
+src/lib/omniORB/orbcore/giopServer.cc
+
+
+Sat  8 Feb 22:55:25 GMT 2020
+============================
+
+- Platform file for Visual Studio 16 / 2019.
+
+config/config.mk
+mk/platforms/x86_win32_vs_16.mk
+
+
+Tue 17 Dec 14:55:15 GMT 2019
+============================
+
+- Update docs and READMEs.
+
+README.FIRST.txt
+README.unix.txt
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB001.html
+doc/omniORB/omniORB015.html
+doc/tex/omniORB.tex
+
+
+Thu 26 Sep 13:30:20 BST 2019
+============================
+
+- Merge Python 3 thread interceptor fix and doc updates from 4_2.
+
+doc/omniORB.pdf
+doc/omniORB/contents_motif.gif
+doc/omniORB/contents_motif.svg
+doc/omniORB/next_motif.gif
+doc/omniORB/next_motif.svg
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB002.html
+doc/omniORB/previous_motif.gif
+doc/omniORB/previous_motif.svg
+
+
+Wed 28 Aug 14:22:50 BST 2019
+============================
+
+- makedeffile.py works on Python 3.
+
+bin/scripts/makedeffile.py
+
+
+Wed 28 Aug 14:07:49 BST 2019
+============================
+
+- Ensure all std namespace functions are filtered from def files.
+
+bin/scripts/makedeffile.py
+mk/win32.mk
+
+
+Thu 15 Aug 12:23:11 BST 2019
+============================
+
+- Add missing return.
+
+src/lib/omniORB/orbcore/http/httpTransportImpl.cc
+
+
+Tue 13 Aug 14:15:31 BST 2019
+============================
+
+- pypy3 support.
+
+acinclude.m4
+configure.ac
+configure
+
+
+Tue  2 Jul 21:33:32 BST 2019
+============================
+
+- Missing break in previous check-in.
+
+src/lib/omniORB/orbcore/unix/unixTransportImpl.cc
+
+
+Mon  1 Jul 11:43:00 BST 2019
+============================
+
+- Race condition creating unix transport socket directory.
+
+src/lib/omniORB/orbcore/unix/unixTransportImpl.cc
+
+
+Wed 20 Mar 17:28:41 GMT 2019
+============================
+
+- Add missing stdio include.
+
+src/lib/omniORB/orbcore/tcpSocket.cc
+
+
+Wed 20 Mar 16:26:49 GMT 2019
+============================
+
+- No need to allocate and copy into buffer when unmarshalling a void
+  or null Any.
+
+src/lib/omniORB/dynamic/any.cc
+
+
+Tue  5 Mar 10:16:06 GMT 2019
+============================
+
+- Fix default endPoints; remove accidentally-included debug code.
+
+include/omniORB4/omniURI.h
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpTransportImpl.cc
+src/lib/omniORB/orbcore/uri.cc
+
+
+Mon  4 Mar 23:12:22 GMT 2019
+============================
+
+- WebSocket support in HTTP transport.
+
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB001.html
+doc/omniORB/omniORB002.html
+doc/omniORB/omniORB003.html
+doc/omniORB/omniORB004.html
+doc/omniORB/omniORB005.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/tex/omniORB.tex
+include/omniORB4/connectionInfo.h
+include/omniORB4/httpContext.h
+include/omniORB4/httpCrypto.h
+include/omniORB4/omniURI.h
+src/lib/omniORB/httpcrypto/httpCrypto.cc
+src/lib/omniORB/orbcore/connectionInfo.cc
+src/lib/omniORB/orbcore/giopRope.cc
+src/lib/omniORB/orbcore/http/httpActive.cc
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpAddress.h
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpConnection.h
+src/lib/omniORB/orbcore/http/httpContext.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.h
+src/lib/omniORB/orbcore/http/httpTransportImpl.cc
+src/lib/omniORB/orbcore/http/httpTransportImpl.h
+src/lib/omniORB/orbcore/ior.cc
+src/lib/omniORB/orbcore/ssl/sslAddress.cc
+src/lib/omniORB/orbcore/ssl/sslAddress.h
+src/lib/omniORB/orbcore/uri.cc
+
+
+Mon  4 Mar 23:07:00 GMT 2019
+============================
+
+- Fix catch by non-reference type.
+
+src/appl/utils/nameclt/nameclt.cc
+
+
+Tue  8 Jan 17:50:03 GMT 2019
+============================
+
+- Include transport type in connection info connect event.
+
+include/omniORB4/internal/tcpSocket.h
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/ssl/sslAddress.cc
+src/lib/omniORB/orbcore/tcp/tcpAddress.cc
+src/lib/omniORB/orbcore/tcpSocket.cc
+
+- Fix leak of peer certificate.
+
+src/lib/omniORB/orbcore/http/httpContext.cc
+
+- Accept HTTP/1.0 responses.
+
+src/lib/omniORB/orbcore/http/httpConnection.cc
+
+
+Fri 14 Dec 10:57:04 GMT 2018
+============================
+
+- Merge comment typo fix.
+
+include/omniORB4/tracedthread.h
+
+
+Tue 11 Dec 00:23:12 GMT 2018
+============================
+
+- Small merge from 4.2.3.
+
+aclocal.m4
+configure
+contrib/RPMs/omniORB.spec
+contrib/RPMs/omniORB_new.spec
+mk/version.mk
+
+
+Tue  4 Dec 10:02:22 GMT 2018
+============================
+
+- Use FNV-1a hash for object table.
+
+include/omniORB4/omniInternal.h
+include/omniORB4/omniORBcompat.h
+src/lib/omniORB/orbcore/corbaBoa.cc
+
+- Change fixed-sized struct var to store a pointer to the struct.
+
+include/omniORB4/templatedecls.h
+
+
+Thu 29 Nov 17:10:43 GMT 2018
+============================
+
+- Avoid clash with std::empty.
+
+src/examples/thread/prodcons.cc
+
+
+Tue 27 Nov 12:34:07 GMT 2018
+============================
+
+- Merge small changes from 4_2 branch.
+
+src/examples/ami/dir.mak
+src/examples/boa/dir.mak
+src/examples/poa/shortcut/dir.mak
+src/lib/omniORB/ziopdynamic/dir.mk
+
+
+Mon 26 Nov 12:46:40 GMT 2018
+============================
+
+- Add is_error flag to connection info callbacks.
+
+include/omniORB4/connectionInfo.h
+src/lib/omniORB/httpcrypto/httpCrypto.cc
+src/lib/omniORB/orbcore/connectionInfo.cc
+src/lib/omniORB/orbcore/giopRope.cc
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.cc
+src/lib/omniORB/orbcore/ssl/sslAddress.cc
+src/lib/omniORB/orbcore/ssl/sslConnection.cc
+src/lib/omniORB/orbcore/ssl/sslEndpoint.cc
+src/lib/omniORB/orbcore/tcp/tcpConnection.cc
+src/lib/omniORB/orbcore/tcp/tcpEndpoint.cc
+src/lib/omniORB/orbcore/tcpSocket.cc
+src/lib/omniORB/orbcore/unix/unixAddress.cc
+src/lib/omniORB/orbcore/unix/unixConnection.cc
+src/lib/omniORB/orbcore/unix/unixEndpoint.cc
+
+
+Tue 30 Oct 17:14:21 GMT 2018
+============================
+
+- Avoid warnings about assignments in conditional expressions.
+
+include/omniORB4/CORBA_ValueBase_vartypes.h
+include/omniORB4/poa.h
+
+
+Thu 27 Sep 16:56:19 BST 2018
+============================
+
+- Connection info for the Unix socket transport.
+
+include/omniORB4/connectionInfo.h
+src/lib/omniORB/orbcore/unix/unixAddress.cc
+src/lib/omniORB/orbcore/unix/unixConnection.cc
+src/lib/omniORB/orbcore/unix/unixEndpoint.cc
+
+
+Thu 27 Sep 11:12:40 BST 2018
+============================
+
+- Do not send Proxy-Authorization after using a CONNECT request for a tunnel.
+
+src/lib/omniORB/orbcore/http/httpConnection.cc
+
+
+Wed  5 Sep 18:09:37 BST 2018
+============================
+
+- Fix race condition leading to use of deleted giopAddress object.
+
+include/omniORB4/internal/giopRope.h
+src/lib/omniORB/orbcore/GIOP_C.cc
+src/lib/omniORB/orbcore/giopRope.cc
+
+
+Wed  5 Sep 16:21:32 BST 2018
+============================
+
+- Always add all algorithms with OpenSSL 1.0, even if the SSL
+  transport is disabled.
+
+src/lib/omniORB/orbcore/ssl/sslTransportImpl.cc
+
+
+Wed  5 Sep 16:19:11 BST 2018
+============================
+
+- Merge build fixes from 4_2 branch.
+
+mk/beforeauto.mk.in
+mk/win32.mk
+src/services/mklib/dynstublib/dir.mk
+src/tool/omkdepend/ifparser.h
+src/tool/omniidl/cxx/dir.mk
+
+
+Thu 30 Aug 14:06:02 BST 2018
+============================
+
+- ziopDynamic library link fix.
+
+src/lib/omniORB/ziopdynamic/dir.mk
+
+
+Thu 30 Aug 13:50:10 BST 2018
+============================
+
+- Logger improvements -- non-omni-thread ids; Windows size_t.
+
+include/omniORB4/omniORB.h
+include/omnithread.h
+mk/version.mk
+src/lib/omniORB/orbcore/logIOstream.cc
+src/lib/omnithread/nt.cc
+src/lib/omnithread/posix.cc
+src/lib/omnithread/vxWorks.cc
+
+- ConnectionInfo callback; HTTP transport fixes; sslConext moved into
+  omni namespace.
+
+ReleaseNotes.txt
+include/omniORB4/GNUmakefile.in
+include/omniORB4/connectionInfo.h
+include/omniORB4/httpContext.h
+include/omniORB4/sslContext.h
+src/lib/omniORB/httpcrypto/httpCrypto.cc
+src/lib/omniORB/orbcore/connectionInfo.cc
+src/lib/omniORB/orbcore/dir.mk
+src/lib/omniORB/orbcore/giopRope.cc
+src/lib/omniORB/orbcore/http/httpActive.cc
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpAddress.h
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpConnection.h
+src/lib/omniORB/orbcore/http/httpContext.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.cc
+src/lib/omniORB/orbcore/ssl/sslAddress.cc
+src/lib/omniORB/orbcore/ssl/sslConnection.cc
+src/lib/omniORB/orbcore/ssl/sslEndpoint.cc
+src/lib/omniORB/orbcore/ssl/sslTransportImpl.h
+src/lib/omniORB/orbcore/tcp/tcpConnection.cc
+src/lib/omniORB/orbcore/tcp/tcpEndpoint.cc
+src/lib/omniORB/orbcore/tcpSocket.cc
+
+
+Fri 17 Aug 17:53:11 BST 2018
+============================
+
+- Handle re-chunked HTTP messages containing encrypted data.
+
+include/omniORB4/minorCode.h
+src/lib/omniORB/httpcrypto/httpCrypto.cc
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpConnection.h
+
+
+Tue  7 Aug 10:46:27 BST 2018
+============================
+
+- Correct linkage and Windows binary release.
+
+src/lib/omniORB/httpcrypto/dir.mk
+
+
+Fri  3 Aug 15:30:14 BST 2018
+============================
+
+- Another Windows build fix.
+
+src/lib/omniORB/httpcrypto/dir.mk
+
+
+Thu 26 Jul 13:14:17 BST 2018
+============================
+
+- Windows build fixes.
+
+mk/beforeauto.mk.in
+mk/platforms/x86_win32_vs_10.mk
+mk/platforms/x86_win32_vs_11.mk
+mk/platforms/x86_win32_vs_12.mk
+mk/platforms/x86_win32_vs_14.mk
+mk/platforms/x86_win32_vs_15.mk
+mk/win32.mk
+src/lib/omniORB/dir.mk
+src/lib/omniORB/httpcrypto/httpCrypto.cc
+
+
+Wed 25 Jul 17:55:11 BST 2018
+============================
+
+- HTTP in-message crypto.
+
+ReleaseNotes.txt
+acinclude.m4
+configure.ac
+configure
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.css
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/tex/omniORB.tex
+include/omniORB4/GNUmakefile.in
+include/omniORB4/callDescriptor.h
+include/omniORB4/callHandle.h
+include/omniORB4/httpContext.h
+include/omniORB4/httpCrypto.h
+include/omniORB4/internal/tcpSocket.h
+include/omniORB4/minorCode.h
+include/omniORB4/sslContext.h
+include/omniORB4/tracedthread.h
+mk/beforeauto.mk.in
+src/lib/omniORB/dir.mk
+src/lib/omniORB/httpcrypto
+src/lib/omniORB/httpcrypto/GNUmakefile.in
+src/lib/omniORB/httpcrypto/GNUmakefile
+src/lib/omniORB/httpcrypto/dir.mk
+src/lib/omniORB/httpcrypto/httpCrypto.cc
+src/lib/omniORB/orbcore/callDescriptor.cc
+src/lib/omniORB/orbcore/callHandle.cc
+src/lib/omniORB/orbcore/exception.cc
+src/lib/omniORB/orbcore/http/httpActive.cc
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpConnection.h
+src/lib/omniORB/orbcore/http/httpContext.cc
+src/lib/omniORB/orbcore/http/httpTransportImpl.cc
+src/lib/omniORB/orbcore/http/httpTransportImpl.h
+src/lib/omniORB/orbcore/minorCode.cc
+src/lib/omniORB/orbcore/ssl/sslActive.cc
+src/lib/omniORB/orbcore/ssl/sslConnection.cc
+src/lib/omniORB/orbcore/ssl/sslConnection.h
+src/lib/omniORB/orbcore/ssl/sslContext.cc
+
+
+Wed 11 Jul 17:38:18 BST 2018
+============================
+
+- With retainAddressOrder false, an immediately failed connection on a
+  resolved address racing with a second thread trying to open a
+  connection to the same server, could lead to an assertion failure.
+
+src/lib/omniORB/orbcore/giopRope.cc
+
+
+Mon  9 Jul 11:14:57 BST 2018
+============================
+
+- Remove lots of obsolete platform files; update current Windows ones.
+
+config/config.mk
+mk/platforms/alpha_linux_2.0.mk
+mk/platforms/alpha_nt_4.0.mk
+mk/platforms/alpha_osf1_3.2.mk
+mk/platforms/alpha_osf1_4.0.mk
+mk/platforms/alpha_osf1_5.0.mk
+mk/platforms/arm_linux_mvl_3.1.mk
+mk/platforms/hppa_hpux_10.20.mk
+mk/platforms/hppa_hpux_11.00.mk
+mk/platforms/hppa_hpux_11.23.mk
+mk/platforms/i586_linux_2.0.mk
+mk/platforms/i586_linux_2.0_glibc.mk
+mk/platforms/i586_linux_2.0_glibc2.1.mk
+mk/platforms/ia64_hpux_11.23.mk
+mk/platforms/m68k_nextstep_3.3.mk
+mk/platforms/mips_irix_6.2_n32.mk
+mk/platforms/mips_irix_6.4_6.5_common.mk
+mk/platforms/mips_irix_6.4_64.mk
+mk/platforms/mips_irix_6.4_n32.mk
+mk/platforms/mips_irix_6.5_64.mk
+mk/platforms/mips_irix_6.5_n32.mk
+mk/platforms/mips_sinux_5.43.mk
+mk/platforms/powerpc_aix_4.2.mk
+mk/platforms/powerpc_aix_4.2_egcs.mk
+mk/platforms/powerpc_aix_4.2_xlc5.mk
+mk/platforms/powerpc_aix_4.3_gcc.mk
+mk/platforms/powerpc_aix_4.3_xlc5.mk
+mk/platforms/powerpc_darwin_1.3.mk
+mk/platforms/s390_linux_glibc2.1.mk
+mk/platforms/sun4_sosV_5.5.mk
+mk/platforms/sun4_sosV_5.6.mk
+mk/platforms/sun4_sosV_5.7.mk
+mk/platforms/x86_freebsd_3.2.mk
+mk/platforms/x86_freebsd_4.0.mk
+mk/platforms/x86_nextstep_3.3.mk
+mk/platforms/x86_osr5.mk
+mk/platforms/x86_sosV_5.5.mk
+mk/platforms/x86_win32_vs_10.mk
+mk/platforms/x86_win32_vs_11.mk
+mk/platforms/x86_win32_vs_12.mk
+mk/platforms/x86_win32_vs_14.mk
+mk/platforms/x86_win32_vs_15.mk
+mk/platforms/x86_win32_vs_6.mk
+mk/platforms/x86_win32_vs_7.mk
+mk/platforms/x86_win32_vs_8.mk
+mk/platforms/x86_win32_vs_9.mk
+
+
+Mon  9 Jul 10:24:03 BST 2018
+============================
+
+- Wrong Host header for resolved addresses in HTTP transport.
+
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpAddress.h
+
+- Remove unnecessary duplicated msvcdllstub.cc.
+
+src/lib/omniORB/orbcore/http/dir.mk
+src/lib/omniORB/orbcore/http/msvcdlldtub.cc
+src/lib/omniORB/orbcore/ssl/dir.mk
+src/lib/omniORB/orbcore/ssl/msvcdllstub.cc
+
+
+Tue  3 Jul 17:47:46 BST 2018
+============================
+
+- Logging could attempt to access deleted address.
+
+include/omniORB4/internal/giopStream.h
+src/lib/omniORB/orbcore/giopStream.cc
+
+
+Wed 27 Jun 10:53:08 BST 2018
+============================
+
+- Windows build fixes.
+
+include/omniORB4/CORBA_sysdep.h
+src/lib/omniORB/orbcore/http/httpActive.cc
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.cc
+src/lib/omniORB/orbcore/http/httpTransportImpl.cc
+src/lib/omniORB/orbcore/http/msvcdlldtub.cc
+
+
+Wed 16 May 13:53:26 BST 2018
+============================
+
+- retainAddressOrder fails to reset addresses if initial name
+  resolution fails; make it default to false.
+
+src/lib/omniORB/orbcore/giopRope.cc
+
+
+Mon 14 May 15:10:25 BST 2018
+============================
+
+- Initial HTTP transport.
+
+configure.ac
+configure
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB002.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/tex/omniORB.tex
+include/omniORB4/GNUmakefile.in
+include/omniORB4/IOP.h
+include/omniORB4/httpContext.h
+include/omniORB4/internal/tcpSocket.h
+include/omniORB4/minorCode.h
+include/omniORB4/omniIOR.h
+include/omniORB4/omniURI.h
+mk/beforeauto.mk.in
+mk/win32.mk
+sample.cfg
+src/appl/utils/catior/catior.cc
+src/lib/omniORB/orbcore/codeSets.cc
+src/lib/omniORB/orbcore/constants.cc
+src/lib/omniORB/orbcore/dir.mk
+src/lib/omniORB/orbcore/http
+src/lib/omniORB/orbcore/http/GNUmakefile.in
+src/lib/omniORB/orbcore/http/GNUmakefile
+src/lib/omniORB/orbcore/http/dir.mk
+src/lib/omniORB/orbcore/http/httpActive.cc
+src/lib/omniORB/orbcore/http/httpAddress.cc
+src/lib/omniORB/orbcore/http/httpAddress.h
+src/lib/omniORB/orbcore/http/httpConnection.cc
+src/lib/omniORB/orbcore/http/httpConnection.h
+src/lib/omniORB/orbcore/http/httpContext.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.cc
+src/lib/omniORB/orbcore/http/httpEndpoint.h
+src/lib/omniORB/orbcore/http/httpTransportImpl.cc
+src/lib/omniORB/orbcore/http/httpTransportImpl.h
+src/lib/omniORB/orbcore/ior.cc
+src/lib/omniORB/orbcore/tcpSocket.cc
+src/lib/omniORB/orbcore/uri.cc
+
+
+Fri 11 May 12:51:29 BST 2018
+============================
+
+- Cleaner SSL context; logging tweaks.
+
+configure.ac
+configure
+include/omniORB4/CORBA_sysdep_trad.h
+include/omniORB4/acconfig.h.in
+include/omniORB4/omniORB.h
+include/omniORB4/sslContext.h
+sample.cfg
+src/lib/omniORB/orbcore/logIOstream.cc
+src/lib/omniORB/orbcore/ssl/sslAddress.cc
+src/lib/omniORB/orbcore/ssl/sslConnection.cc
+src/lib/omniORB/orbcore/ssl/sslConnection.h
+src/lib/omniORB/orbcore/ssl/sslContext.cc
+src/lib/omniORB/orbcore/ssl/sslEndpoint.cc
+src/lib/omniORB/orbcore/ssl/sslTransportImpl.cc
+src/lib/omniORB/orbcore/ssl/sslTransportImpl.h
+
+
+Fri 11 May 12:18:05 BST 2018
+============================
+
+- Doc version updates.
+
+doc/omniORB.pdf
+doc/omniORB/index.html
+doc/omniORB/omniORB.html
+doc/omniORB/omniORB001.html
+doc/omniORB/omniORB002.html
+doc/omniORB/omniORB003.html
+doc/omniORB/omniORB004.html
+doc/omniORB/omniORB005.html
+doc/omniORB/omniORB006.html
+doc/omniORB/omniORB007.html
+doc/omniORB/omniORB008.html
+doc/omniORB/omniORB009.html
+doc/omniORB/omniORB010.html
+doc/omniORB/omniORB011.html
+doc/omniORB/omniORB012.html
+doc/omniORB/omniORB013.html
+doc/omniORB/omniORB014.html
+doc/omniORB/omniORB015.html
+doc/omniORB/omniORB016.html
+doc/tex/omniORB.tex
+
+
+Tue  8 May 18:13:36 BST 2018
+============================
+
+- PyPy support.
+
+mk/python.mk
+src/tool/omniidl/cxx/idlpython.cc
+
+
+Thu 26 Apr 15:59:08 BST 2018
+============================
+
+- Update library version symbols.
+
+include/omniORB4/omniInternal.h
+src/lib/omniORB/dynamic/constants.cc
+src/lib/omniORB/orbcore/constants.cc
+src/lib/omniORB/python/omniidl_be/cxx/config.py
+src/lib/omniORB/python/omniidl_be/cxx/skel/template.py
+src/lib/omniORB/python3/omniidl_be/cxx/config.py
+src/lib/omniORB/python3/omniidl_be/cxx/skel/template.py
+
+
+Wed 18 Apr 18:46:35 BST 2018
+============================
+
+- Remove throw specifications from options.
+
+include/omniORB4/internal/orbOptions.h
+src/lib/omniORB/orbcore/codeSets.cc
+src/lib/omniORB/orbcore/corbaOrb.cc
+src/lib/omniORB/orbcore/cs-UTF-8.cc
+src/lib/omniORB/orbcore/current.cc
+src/lib/omniORB/orbcore/dynamicLib.cc
+src/lib/omniORB/orbcore/giopBiDir.cc
+src/lib/omniORB/orbcore/giopEndpoint.cc
+src/lib/omniORB/orbcore/giopRope.cc
+src/lib/omniORB/orbcore/giopServer.cc
+src/lib/omniORB/orbcore/giopStrand.cc
+src/lib/omniORB/orbcore/giopStreamImpl.cc
+src/lib/omniORB/orbcore/initRefs.cc
+src/lib/omniORB/orbcore/invoker.cc
+src/lib/omniORB/orbcore/objectAdapter.cc
+src/lib/omniORB/orbcore/omniInternal.cc
+src/lib/omniORB/orbcore/omniObjRef.cc
+src/lib/omniORB/orbcore/omniTransport.cc
+src/lib/omniORB/orbcore/orbOptions.cc
+src/lib/omniORB/orbcore/orbOptionsFile.cc
+src/lib/omniORB/orbcore/orbOptionsReg.cc
+src/lib/omniORB/orbcore/poa.cc
+src/lib/omniORB/orbcore/ssl/sslTransportImpl.cc
+src/lib/omniORB/orbcore/transportRules.cc
+
+
+Wed 18 Apr 18:26:27 BST 2018
+============================
+
+- Support vast messages (merge from trunk).
+
+include/omniORB4/CORBA_sysdep.h
+include/omniORB4/cdrStream.h
+include/omniORB4/internal/giopStream.h
+include/omniORB4/internal/giopStreamImpl.h
+include/omniORB4/internal/orbOptions.h
+include/omniORB4/internal/orbParameters.h
+include/omniORB4/internal/typecode.h
+include/omniORB4/internal/valueTrackerImpl.h
+include/omniORB4/omniInternal.h
+src/lib/omniORB/dynamic/typecode.cc
+src/lib/omniORB/dynamic/valueTracker.cc
+src/lib/omniORB/dynamic/valueType.cc
+src/lib/omniORB/orbcore/cdrMemoryStream.cc
+src/lib/omniORB/orbcore/cdrStreamAdapter.cc
+src/lib/omniORB/orbcore/cdrValueChunkStream.cc
+src/lib/omniORB/orbcore/giopImpl10.cc
+src/lib/omniORB/orbcore/giopImpl11.cc
+src/lib/omniORB/orbcore/giopImpl12.cc
+src/lib/omniORB/orbcore/giopStream.cc
+src/lib/omniORB/orbcore/giopStreamImpl.cc
+src/lib/omniORB/orbcore/orbOptions.cc
+
+
+Wed 18 Apr 18:21:21 BST 2018
+============================
+
+- Start of the omniORB 4.3 development branch.
+
+README.FIRST.txt
+ReleaseNotes.txt
+configure.ac
+configure
+contrib/RPMs/omniORB.spec
+mk/version.mk

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.34">
+<style type="text/css">
+.li-itemize{margin:1ex 0ex;}
+.li-enumerate{margin:1ex 0ex;}
+.dd-description{margin:0ex 0ex 1ex 4ex;}
+.dt-description{margin:0ex;}
+.toc{list-style:none;}
+.footnotetext{margin:0ex; padding:0ex;}
+div.footnotetext P{margin:0px; text-indent:1em;}
+.thefootnotes{text-align:left;margin:0ex;}
+.dt-thefootnotes{margin:0em;}
+.dd-thefootnotes{margin:0em 0em 0em 2em;}
+.footnoterule{margin:1em auto 1em 0px;width:50%;}
+.caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
+.title{margin:2ex auto;text-align:center}
+.titlemain{margin:1ex 2ex 2ex 1ex;}
+.titlerest{margin:0ex 2ex;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.flushleft{text-align:left;margin-left:0ex;margin-right:auto;}
+.flushright{text-align:right;margin-left:auto;margin-right:0ex;}
+div table{margin-left:inherit;margin-right:inherit;margin-bottom:2px;margin-top:2px}
+td table{margin:auto;}
+table{border-collapse:collapse;}
+td{padding:0;}
+.cellpadding0 tr td{padding:0;}
+.cellpadding1 tr td{padding:1px;}
+pre{text-align:left;margin-left:0ex;margin-right:auto;}
+blockquote{margin-left:4ex;margin-right:4ex;text-align:left;}
+td p{margin:0px;}
+.boxed{border:1px solid black}
+.textboxed{border:1px solid black}
+.vbar{border:none;width:2px;background-color:black;}
+.hbar{border:none;height:2px;width:100%;background-color:black;}
+.hfill{border:none;height:1px;width:200%;background-color:black;}
+.vdisplay{border-collapse:separate;border-spacing:2px;width:auto; empty-cells:show; border:2px solid red;}
+.vdcell{white-space:nowrap;padding:0px; border:2px solid green;}
+.display{border-collapse:separate;border-spacing:2px;width:auto; border:none;}
+.dcell{white-space:nowrap;padding:0px; border:none;}
+.dcenter{margin:0ex auto;}
+.vdcenter{border:solid #FF8000 2px; margin:0ex auto;}
+.minipage{text-align:left; margin-left:0em; margin-right:auto;}
+.marginpar{border:solid thin black; width:20%; text-align:left;}
+.marginparleft{float:left; margin-left:0ex; margin-right:1ex;}
+.marginparright{float:right; margin-left:1ex; margin-right:0ex;}
+.theorem{text-align:left;margin:1ex auto 1ex 0ex;}
+.part{margin:2ex auto;text-align:center}
+.lstlisting{font-family:monospace;white-space:pre;margin-right:auto;margin-left:0pt;text-align:left}
+</style>
+<title>omniidl --- The omniORB IDL Compiler
+</title>
+</head>
+<body >
+<!--HEVEA command line is: hevea omniidl.tex -->
+<!--CUT STYLE article--><!--CUT DEF section 1 --><table class="title"><tr><td style="padding:1ex"><h1 class="titlemain"><span style="font-family:sans-serif">omniidl</span> &#X2014; The omniORB IDL Compiler</h1><h3 class="titlerest">Duncan Grisby<br>
+AT&amp;T Laboratories Cambridge<br>
+</h3><h3 class="titlerest">June 2000</h3></td></tr>
+</table>
+<!--TOC section id="sec1" Introduction-->
+<h2 id="sec1" class="section">1&#XA0;&#XA0;Introduction</h2><!--SEC END --><p>This manual describes <span style="font-family:sans-serif">omniidl</span>, the omniORB IDL compiler. It is
+intended for developers who wish to write their own IDL compiler
+back-ends, or to modify existing ones.</p><p>If you just wish to use <span style="font-family:sans-serif">omniidl</span> to create stubs for C++ or Python,
+you should read the omniORB or omniORBpy manuals instead of this one.</p>
+<!--TOC subsection id="sec2" Requirements-->
+<h3 id="sec2" class="subsection">1.1&#XA0;&#XA0;Requirements</h3><!--SEC END --><p>Back-ends for <span style="font-family:sans-serif">omniidl</span> are written in Python, so to use it you must
+have an up-to-date Python interpreter. You must also understand Python
+to be able to follow this manual and write back-ends. You can download
+Python and associated documentation from
+<a href="http://www.python.org/"><span style="font-family:monospace">http://www.python.org/</span></a>.</p><p>The front-end scanner and parser are written using flex and bison; the
+rest of the front-end is written in C++. The code intentionally avoids
+using any advanced (and useful) features of C++, such as templates, so
+as to make it as portable as possible.</p>
+<!--TOC subsection id="sec3" Running <span style="font-family:sans-serif">omniidl</span>-->
+<h3 id="sec3" class="subsection">1.2&#XA0;&#XA0;Running <span style="font-family:sans-serif">omniidl</span></h3><!--SEC END --><p>On all platforms, there is a command named <span style="font-family:sans-serif">omniidl</span>. On Unix
+platforms, <span style="font-family:sans-serif">omniidl</span> is a Python script which runs Python via the
+<code>#!</code> mechanism. On Windows NT, there is an executable named
+<span style="font-family:monospace">omniidl.exe</span>.</p><p>The <span style="font-family:sans-serif">omniidl</span> command line has the form:</p><blockquote class="quote"> <span style="font-family:monospace">omniidl </span>[<span style="font-style:italic">options</span>]<span style="font-family:monospace"> -b</span>&lt;<span style="font-style:italic">back-end</span>&gt;<span style="font-family:monospace"> </span>[<span style="font-style:italic">back-end options</span>]<span style="font-family:monospace"> </span>&lt;<span style="font-style:italic">file 1</span>&gt;<span style="font-family:monospace"> </span>&lt;<span style="font-style:italic">file 2</span>&gt;<span style="font-family:monospace"> </span>&#X2026;</blockquote><p>The supported flags are:</p><table style="border:0;border-spacing:0" class="cellpadding0"><tr><td style="text-align:left;white-space:nowrap" ></td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-D</span><span style="font-style:italic">name</span>[<span style="font-family:monospace">=</span><span style="font-style:italic">value</span>]
+</td><td style="text-align:left;white-space:nowrap" >Define <span style="font-style:italic">name</span> for the preprocessor.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-U</span><span style="font-style:italic">name</span>
+</td><td style="text-align:left;white-space:nowrap" >Undefine <span style="font-style:italic">name</span> for the preprocessor.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-I</span><span style="font-style:italic">dir</span>
+</td><td style="text-align:left;white-space:nowrap" >Include <span style="font-style:italic">dir</span> in the preprocessor search path.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-E</span>
+</td><td style="text-align:left;white-space:nowrap" >Only run the preprocessor, sending its output to stdout.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-Y</span><span style="font-style:italic">cmd</span>
+</td><td style="text-align:left;white-space:nowrap" >Use <span style="font-style:italic">cmd</span> as the preprocessor, rather than the normal C
+preprocessor.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-N</span>
+</td><td style="text-align:left;white-space:nowrap" >Do not run the preprocessor.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-T</span>
+</td><td style="text-align:left;white-space:nowrap" >Use a temporary file, not a pipe, for preprocessor output.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-Wp</span><span style="font-style:italic">arg</span>[,<span style="font-style:italic">arg</span>&#X2026;]
+</td><td style="text-align:left;white-space:nowrap" >Send arguments to the preprocessor.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-b</span><span style="font-style:italic">back-end</span>
+</td><td style="text-align:left;white-space:nowrap" >Run the specified back-end. For the C++ ORB, use <span style="font-family:monospace">-bcxx</span>.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-Wb</span><span style="font-style:italic">arg</span>[,<span style="font-style:italic">arg</span>&#X2026;]
+</td><td style="text-align:left;white-space:nowrap" >Send arguments to the back-end.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-nf</span>
+</td><td style="text-align:left;white-space:nowrap" >Do not warn about unresolved forward declarations.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-k</span>
+</td><td style="text-align:left;white-space:nowrap" >Keep comments after declarations, to be used by some back-ends.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-K</span>
+</td><td style="text-align:left;white-space:nowrap" >Keep comments before declarations, to be used by some back-ends.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-C</span><span style="font-style:italic">dir</span>
+</td><td style="text-align:left;white-space:nowrap" >Change directory to <span style="font-style:italic">dir</span> before writing output files.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-i</span>
+</td><td style="text-align:left;white-space:nowrap" >Run the front end and back-ends, then enter the interactive loop.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-d</span>
+</td><td style="text-align:left;white-space:nowrap" >Dump the parsed IDL then exit, without running a back-end.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-p</span><span style="font-style:italic">dir</span>
+</td><td style="text-align:left;white-space:nowrap" >Use <span style="font-style:italic">dir</span> as a path to find omniidl back-ends.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-V</span>
+</td><td style="text-align:left;white-space:nowrap" >Print version information then exit.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-u</span>
+</td><td style="text-align:left;white-space:nowrap" >Print usage information.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+<span style="font-family:monospace">-v</span>
+</td><td style="text-align:left;white-space:nowrap" >Verbose: trace compilation stages.</td></tr>
+<tr><td style="text-align:left;white-space:nowrap" >
+</td></tr>
+</table><p>If you do not specify any back-ends (with the <span style="font-family:monospace">-b</span> flag),
+<span style="font-family:sans-serif">omniidl</span> just runs the compiler front-end, checking that the IDL is
+valid. If you specify more than one back-end, the back-ends are run in
+turn on the abstract syntax tree of each file. This permits you to
+generate stubs for more than one language in a single run. It also
+permits you to write back-ends which annotate or modify the abstract
+syntax tree to be used by later back-ends.</p><p>For example, the command:</p><blockquote class="quote">
+<span style="font-family:monospace">omniidl -bdump -bpython foo.idl bar.idl</span>
+</blockquote><p>first reads and parses <span style="font-family:monospace">foo.idl</span>, and runs the
+<span style="font-family:monospace">dump</span> and <span style="font-family:monospace">python</span> back-ends on it in turn. Then it reads
+and parses <span style="font-family:monospace">bar.idl</span> and runs the two back-ends on that.</p>
+<!--TOC subsection id="sec4" Preprocessor interactions-->
+<h3 id="sec4" class="subsection">1.3&#XA0;&#XA0;Preprocessor interactions</h3><!--SEC END --><p>IDL is processed by the C preprocessor before <span style="font-family:sans-serif">omniidl</span> parses it.
+<span style="font-family:sans-serif">omniidl</span> always uses the GNU C preprocessor (which it builds with the
+name omnicpp). The <span style="font-family:monospace">-D</span>, <span style="font-family:monospace">-U</span>, and <span style="font-family:monospace">-I</span>
+options are just sent to the preprocessor. Note that the current
+directory is not on the include search path by default&#X2014;use
+&#X2018;<span style="font-family:monospace">-I.</span>&#X2019; for that. The <span style="font-family:monospace">-Y</span> option can be used to
+specify a different preprocessor to omnicpp. Beware that line
+directives inserted by other preprocessors are likely to confuse
+<span style="font-family:sans-serif">omniidl</span>.</p>
+<!--TOC subsection id="sec5" Forward-declared interfaces-->
+<h3 id="sec5" class="subsection">1.4&#XA0;&#XA0;Forward-declared interfaces</h3><!--SEC END --><p>If you have an IDL file like:</p><div class="lstlisting"><span style="font-size:small"><span style="font-weight:bold">interface</span></span><span style="font-size:small"> </span><span style="font-size:small">I</span><span style="font-size:small">;</span><span style="font-size:small">
+</span><span style="font-size:small"><span style="font-weight:bold">interface</span></span><span style="font-size:small"> </span><span style="font-size:small">J</span><span style="font-size:small"> {</span><span style="font-size:small">
+</span><span style="font-size:small">  </span><span style="font-size:small"><span style="font-weight:bold">attribute</span></span><span style="font-size:small"> </span><span style="font-size:small">I</span><span style="font-size:small"> </span><span style="font-size:small">the_I</span><span style="font-size:small">;</span><span style="font-size:small">
+</span><span style="font-size:small">};</span></div><p>then <span style="font-family:sans-serif">omniidl</span> will normally issue a warning:</p><pre class="verbatim"><span style="font-size:small">  test.idl:1: Warning: Forward declared interface `::I' was never
+  fully defined
+</span></pre><p>It is illegal to declare such IDL in isolation, but it
+<em>is</em> valid to define interface <span style="font-family:monospace">I</span> in a separate file. If
+you have a lot of IDL with this sort of construct, you will drown
+under the warning messages. Use the <span style="font-family:monospace">-nf</span> option to suppress
+them.</p>
+<!--TOC subsection id="sec6" Comments-->
+<h3 id="sec6" class="subsection">1.5&#XA0;&#XA0;Comments</h3><!--SEC END --><p>
+<a id="sec:comments"></a></p><p>By default, <span style="font-family:sans-serif">omniidl</span> discards comments in the input IDL. However,
+with the <span style="font-family:monospace">-k</span> and <span style="font-family:monospace">-K</span> options, it preserves the
+comments for use by the back-ends.</p><p>The two different options relate to how comments are attached to
+declarations within the IDL. Given IDL like:</p><div class="lstlisting"><span style="font-size:small"><span style="font-weight:bold">interface</span></span><span style="font-size:small"> </span><span style="font-size:small">I</span><span style="font-size:small"> {</span><span style="font-size:small">
+</span><span style="font-size:small">  </span><span style="font-size:small"><span style="font-weight:bold">void</span></span><span style="font-size:small"> </span><span style="font-size:small">op1</span><span style="font-size:small">();</span><span style="font-size:small">
+</span><span style="font-size:small">  </span><span style="font-size:small"><span style="font-style:italic"><span style="font-size:small">// A comment</span></span></span><span style="font-size:small">
+</span><span style="font-size:small">  </span><span style="font-size:small"><span style="font-weight:bold">void</span></span><span style="font-size:small"> </span><span style="font-size:small">op2</span><span style="font-size:small">();</span><span style="font-size:small">
+</span><span style="font-size:small">};</span></div><p>the <span style="font-family:monospace">-k</span> flag will attach the comment to <span style="font-family:monospace">op1()</span>;
+the <span style="font-family:monospace">-K</span> flag will attach it to <span style="font-family:monospace">op2()</span>.</p>
+<!--TOC subsection id="sec7" Interactive loop-->
+<h3 id="sec7" class="subsection">1.6&#XA0;&#XA0;Interactive loop</h3><!--SEC END --><p>When <span style="font-family:sans-serif">omniidl</span> is given the <span style="font-family:monospace">-i</span> option, it runs the compiler
+front-end and any back-ends specified, and then drops into Python&#X2019;s
+interactive command loop. Within the interactive loop, you can
+<span style="font-family:monospace">import omniidl</span>. The parsed AST is then available as
+<span style="font-family:monospace">omniidl.idlast.tree</span>. This mode is useful for investigating the
+parsed tree.</p>
+<!--TOC subsection id="sec8" Copyright-->
+<h3 id="sec8" class="subsection">1.7&#XA0;&#XA0;Copyright</h3><!--SEC END --><p>All parts of <span style="font-family:sans-serif">omniidl</span> are licensed under the GNU General Public
+License, available in the file <span style="font-family:monospace">COPYING</span>.</p><p>As a special exception to the terms of the GPL, we do not consider
+back-ends to be derived works of <span style="font-family:sans-serif">omniidl</span>. This means that you may
+distribute back-ends you write under any terms you like. The back-ends
+we distribute are licensed under the GPL, so you must abide by its
+terms if you distribute or modify our back-ends.</p><p>As another exception, we do not consider the output of the back-ends
+we distribute to be derived works of those back-ends. You may
+therefore use generated stubs with no restrictions.</p>
+<!--TOC section id="sec9" Back-end interface-->
+<h2 id="sec9" class="section">2&#XA0;&#XA0;Back-end interface</h2><!--SEC END --><p>
+<a id="sec:backend"></a></p><p>There are three elements to the back-end interface: requirements on
+the back-end modules themselves, a set of output and utility
+functions, and the interface to the parsed IDL.</p>
+<!--TOC subsection id="sec10" Back-end modules-->
+<h3 id="sec10" class="subsection">2.1&#XA0;&#XA0;Back-end modules</h3><!--SEC END --><p>
+<a id="sec:bemodules"></a></p><p><span style="font-family:sans-serif">omniidl</span> back-ends are just normal Python modules. When you specify a
+back-end with <span style="font-family:monospace">-bfoo</span>, <span style="font-family:sans-serif">omniidl</span> first tries to open the
+Python module named <span style="font-family:monospace">omniidl_be.foo</span>. If that fails, it tries to
+open the module just named <span style="font-family:monospace">foo</span>, using the normal
+<span style="font-family:monospace">PYTHONPATH</span> mechanism. As with any Python module, the module
+<span style="font-family:monospace">foo</span> can either be implemented as a single file named
+<span style="font-family:monospace">foo.py</span>, or as a directory <span style="font-family:monospace">foo</span> containing a file named
+<span style="font-family:monospace">__init__.py</span>.</p><p>The only requirement on back-end modules is that they contain a
+function with the signature <span style="font-family:monospace">run(tree, args)</span>, where <span style="font-family:monospace">tree</span>
+is an <span style="font-family:monospace">AST</span> object as described in section&#XA0;<a href="#sec%3Aastclass">2.3.3</a>,
+and <span style="font-family:monospace">args</span> is a list of argument strings passed to the back-end.</p><p>Back-ends may also optionally provide a variable named <span style="font-family:monospace">cpp_args</span>
+which contains a list of strings containing arguments to be given to
+the C preprocessor. For example, the Python back-end contains the
+line:</p><div class="lstlisting"><span style="font-size:small">cpp_args</span><span style="font-size:small"> = [</span><span style="font-size:small"><span style="font-size:small">"-D__OMNIIDL_PYTHON__"</span></span><span style="font-size:small">]</span></div>
+<!--TOC subsection id="sec11" Output and utility functions-->
+<h3 id="sec11" class="subsection">2.2&#XA0;&#XA0;Output and utility functions</h3><!--SEC END --><p>The purpose of most back-ends is to output source code in some
+language. It is often the case that much of the output is independent
+of the specifics of the IDL input. The output for an IDL interface,
+for example, might be an extensive class definition containing
+configuration and initialisation code which is largely independent of
+the specifics of the interface. At various places throughout the class
+definition, there would be items which <em>were</em> dependent on the
+interface definition.</p><p><span style="font-family:sans-serif">omniidl</span> supports this with <em>template</em> based output functions.
+Templates are simply strings containing the code to be output,
+including expressions surrounded by &#X2018;<span style="font-family:monospace">@</span>&#X2019; characters. When the
+templates are output, the keys inside the &#X2018;<span style="font-family:monospace">@</span>&#X2019; expressions are
+replaced with values according to the output arguments. An
+&#X2018;<span style="font-family:monospace">@</span>&#X2019; symbol can be output by putting &#X2018;<span style="font-family:monospace">@@</span>&#X2019; in the
+template.</p><p>The output facilities are provided in the <span style="font-family:monospace">omniidl.output</span> module
+by the <span style="font-family:monospace">Stream</span> class. The primary method of <span style="font-family:monospace">Stream</span>
+objects is <span style="font-family:monospace">out()</span>, which takes arguments of a template string
+and a set of key/value pairs to be used in <span style="font-family:monospace">@</span> substitutions.
+For example, if <span style="font-family:monospace">st</span> is a <span style="font-family:monospace">Stream</span> object, then the code:</p><div class="lstlisting"><span style="font-size:small">    </span><span style="font-size:small">template</span><span style="font-size:small"> = </span><span style="font-size:small"><span style="font-size:small">""</span></span><span style="font-size:small"><span style="font-size:small">"\</span><span style="font-size:small">
+</span><span style="font-size:small">  class @id@ {</span><span style="font-size:small">
+</span><span style="font-size:small">  public:</span><span style="font-size:small">
+</span><span style="font-size:small">    @id@(@type@ a) : a_(a) {}</span><span style="font-size:small">
+</span><span style="font-size:small">  private:</span><span style="font-size:small">
+</span><span style="font-size:small">    @type@ a_;</span><span style="font-size:small">
+</span><span style="font-size:small">  };"</span></span><span style="font-size:small"><span style="font-size:small">""</span></span><span style="font-size:small">
+</span><span style="font-size:small">
+</span><span style="font-size:small">    </span><span style="font-size:small">st</span><span style="font-size:small">.</span><span style="font-size:small">out</span><span style="font-size:small">(</span><span style="font-size:small">template</span><span style="font-size:small">, </span><span style="font-size:small">id</span><span style="font-size:small">=</span><span style="font-size:small"><span style="font-size:small">"foo"</span></span><span style="font-size:small">, </span><span style="font-size:small">type</span><span style="font-size:small">=</span><span style="font-size:small"><span style="font-size:small">"int"</span></span><span style="font-size:small">)</span></div><p>would result in output:</p><div class="lstlisting"><span style="font-size:small">  </span><span style="font-size:small"><span style="font-weight:bold">class</span></span><span style="font-size:small"> </span><span style="font-size:small">foo</span><span style="font-size:small"> {</span><span style="font-size:small">
+</span><span style="font-size:small">  </span><span style="font-size:small"><span style="font-weight:bold">public</span></span><span style="font-size:small">:</span><span style="font-size:small">
+</span><span style="font-size:small">    </span><span style="font-size:small">foo</span><span style="font-size:small">(</span><span style="font-size:small"><span style="font-weight:bold">int</span></span><span style="font-size:small"> </span><span style="font-size:small">a</span><span style="font-size:small">) : </span><span style="font-size:small">a_</span><span style="font-size:small">(</span><span style="font-size:small">a</span><span style="font-size:small">) {}</span><span style="font-size:small">
+</span><span style="font-size:small">  </span><span style="font-size:small"><span style="font-weight:bold">private</span></span><span style="font-size:small">:</span><span style="font-size:small">
+</span><span style="font-size:small">    </span><span style="font-size:small"><span style="font-weight:bold">int</span></span><span style="font-size:small"> </span><span style="font-size:small">a_</span><span style="font-size:small">;</span><span style="font-size:small">
+</span><span style="font-size:small">  };</span></div><p>When <span style="font-family:monospace">@</span> expressions are substituted, the expression is
+actually <em>evaluated</em>, not just textually replaced. This means
+that you can write templates containing strings like
+&#X2018;<span style="font-family:monospace">@obj.name()@</span>&#X2019;. Expressions must evaluate to strings. This
+feature should not be over-used&#X2014;it is very easy to write
+incomprehensible template expressions. The vast majority of templates
+should only use simple string substitutions.</p><p>Commonly, it is necessary to nest definitions which are output inside
+other definitions. <span style="font-family:monospace">Stream</span> objects keep track of a current
+indentation level to aid this. The methods <span style="font-family:monospace">inc_indent()</span> and
+<span style="font-family:monospace">dec_indent()</span> increment and decrement the current indent level
+respectively. The number of spaces corresponding to a single indent
+level is configured when the <span style="font-family:monospace">Stream</span> is created. Occasionally,
+you may need to output code which ignores the current indent level
+(preprocessor directives in C, for example). The <span style="font-family:monospace">niout()</span> method
+is identical to <span style="font-family:monospace">out()</span> except that it performs no indentation.</p><p>The <span style="font-family:monospace">Stream</span> constructor takes two arguments, a file opened for
+writing, and an integer specifying how many spaces to use for each
+indent level.</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.output.Stream</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">Stream(file,indent_size)</span></span></dt><dd class="dd-description"><br>
+ Initialise a <span style="font-family:monospace">Stream</span> with the given output file and indent
+size.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">inc_indent()</span></span></dt><dd class="dd-description"><br>
+ Increment the indent level.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">dec_indent()</span></span></dt><dd class="dd-description"><br>
+ Decrement the indent level.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">out(template,key=val,&#X2026;)</span></span></dt><dd class="dd-description"><br>
+ Output the template string <span style="font-family:monospace">template</span> with key/value
+substitution and indenting.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">niout(template,key=val,&#X2026;)</span></span></dt><dd class="dd-description"><br>
+ As <span style="font-family:monospace">out()</span>, but with no indenting.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec12" Utility functions-->
+<h4 id="sec12" class="subsubsection">2.2.1&#XA0;&#XA0;Utility functions</h4><!--SEC END --><p>The <span style="font-family:monospace">omniidl.idlutil</span> module contains a number of useful
+functions:</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlutil</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">escapifyString(str)</span></span></dt><dd class="dd-description"><br>
+ Convert any non-printable characters in string <span style="font-family:monospace">str</span> into octal
+escape sequences.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">pruneScope(target,from)</span></span></dt><dd class="dd-description"><br>
+ Given two scoped names represented as lists of strings, return
+<span style="font-family:monospace">target</span> with any prefix it shares with <span style="font-family:monospace">from</span> removed. For
+example:
+<pre class="verbatim">  &gt;&gt;&gt; pruneScope(['A','B','C','D'],['A','B','D'])
+  ['C','D']
+</pre></dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">relativeScope(from,dest)</span></span></dt><dd class="dd-description"><br>
+ Given two globally-scoped name lists, return a minimal scoped name
+list which identifies the destination scope, without clashing with
+another identifier. If the only valid result is a globally-scoped
+name, the result list is prefixed with <span style="font-family:monospace">None</span>.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">slashName(sn,from)</span></span></dt><dd class="dd-description">
+</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">dotName(sn,from)</span></span></dt><dd class="dd-description">
+</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">ccolonName(sn,from)</span></span></dt><dd class="dd-description"><br>
+ Prune scoped name list <span style="font-family:monospace">sn</span> with <span style="font-family:monospace">pruneScope(sn,from)</span>,
+then convert into a string with name components separated by
+&#X2018;<span style="font-family:monospace">/</span>&#X2019;, &#X2018;<span style="font-family:monospace">.</span>&#X2019; or &#X2018;<span style="font-family:monospace">::</span>&#X2019;.</dd></dl><hr style="height:2"></div>
+<!--TOC subsection id="sec13" Abstract Syntax Tree-->
+<h3 id="sec13" class="subsection">2.3&#XA0;&#XA0;Abstract Syntax Tree</h3><!--SEC END --><p>
+<a id="sec:ast"></a></p><p>The main meat of the back-end interface is in the
+<span style="font-family:monospace">omniidl.idlast</span> and <span style="font-family:monospace">omniidl.idltype</span> modules. When the
+compiler parses an IDL file, it creates a tree of objects representing
+the IDL declarations. The classes for these declarations are defined
+in the <span style="font-family:monospace">idlast</span> module. The way an IDL declaration is split into
+objects closely follows the terms within the IDL grammar presented in
+chapter&#XA0;3 of the CORBA 2.3 specification.</p>
+<!--TOC subsubsection id="sec14" Visitor pattern-->
+<h4 id="sec14" class="subsubsection">2.3.1&#XA0;&#XA0;Visitor pattern</h4><!--SEC END --><p>All objects within the back-end interface support the <em>visitor</em>
+pattern. They have an <span style="font-family:monospace">accept(visitor)</span> method which acts on a
+visitor adhering to the interfaces in the <span style="font-family:monospace">omniidl.idlvisitor</span>
+module. Note that Python&#X2019;s dynamic type system means that visitor
+objects need not actually derive from the classes defined in
+<span style="font-family:monospace">idlvisitor</span><sup><a id="text1" href="#note1">1</a></sup>. Also note that you do not have to use the
+visitor pattern if you do not wish to.</p>
+<!--TOC subsubsection id="sec15" Pragmas and comments-->
+<h4 id="sec15" class="subsubsection">2.3.2&#XA0;&#XA0;Pragmas and comments</h4><!--SEC END --><p>Any unknown <span style="font-family:monospace">#pragma</span>s encountered in the IDL are attached to
+nodes within the AST. Similarly, comments are attached if <span style="font-family:sans-serif">omniidl</span> is
+run with the <span style="font-family:monospace">-k</span> or <span style="font-family:monospace">-K</span> fields.</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Pragma</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">text()</span></span></dt><dd class="dd-description"><br>
+ Text of the pragma.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">__str__()</span></span></dt><dd class="dd-description"><br>
+ Same as <span style="font-family:monospace">text()</span>.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">file()</span></span></dt><dd class="dd-description"><br>
+ File containing the pragma.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">line()</span></span></dt><dd class="dd-description"><br>
+ Line within the file.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Comment</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">text()</span></span></dt><dd class="dd-description"><br>
+ Text of the comment.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">__str__()</span></span></dt><dd class="dd-description"><br>
+ Same as <span style="font-family:monospace">text()</span>.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">file()</span></span></dt><dd class="dd-description"><br>
+ File containing the comment.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">line()</span></span></dt><dd class="dd-description"><br>
+ Line within the file.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec16" The root of the tree-->
+<h4 id="sec16" class="subsubsection">2.3.3&#XA0;&#XA0;The root of the tree</h4><!--SEC END --><p>
+<a id="sec:astclass"></a></p><p>The back-end&#X2019;s <span style="font-family:monospace">run()</span> function (described in
+section&#XA0;<a href="#sec%3Abemodules">2.1</a>) is passed an object of class <span style="font-family:monospace">AST</span>.</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.AST</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">file()</span></span></dt><dd class="dd-description"><br>
+ The file name of the main IDL file being compiled.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarations()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Decl</span> objects corresponding to declarations at file
+scope.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">pragmas()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Pragma</span> objects containing <span style="font-family:monospace">#pragma</span>s which
+occurred before any declarations. Later <span style="font-family:monospace">#pragma</span>s are
+attached to <span style="font-family:monospace">Decl</span> objects.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">comments()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Comment</span> objects containing comments which were not
+attached to declarations (see section&#XA0;<a href="#sec%3Acomments">1.5</a>).</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">accept(visitor)</span></span></dt><dd class="dd-description"><br>
+ Visitor pattern accept.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec17" Base declaration-->
+<h4 id="sec17" class="subsubsection">2.3.4&#XA0;&#XA0;Base declaration</h4><!--SEC END --><p>All declarations in the tree are derived from the <span style="font-family:monospace">Decl</span> class:</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Decl</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">file()</span></span></dt><dd class="dd-description"><br>
+ The name of the file in which this declaration was made.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">line()</span></span></dt><dd class="dd-description"><br>
+ The line number within the file.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">mainFile()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the declaration is in the main IDL file; false if
+it is in an included file.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">pragmas()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Pragma</span> objects containing <span style="font-family:monospace">#pragma</span>s which
+occurred after this declaration, but before any others.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">comments()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Comment</span> objects containing comments attached to this
+declaration (see section&#XA0;<a href="#sec%3Acomments">1.5</a>).</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">accept(visitor)</span></span></dt><dd class="dd-description"><br>
+ Visitor pattern accept.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec18" Declarations with a repository identifier-->
+<h4 id="sec18" class="subsubsection">2.3.5&#XA0;&#XA0;Declarations with a repository identifier</h4><!--SEC END --><p>Some classes of declaration object also inherit from the
+<span style="font-family:monospace">DeclRepoId</span> mixin class:</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.DeclRepoId</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">identifier()</span></span></dt><dd class="dd-description"><br>
+ Name of the declaration as a string.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">scopedName()</span></span></dt><dd class="dd-description"><br>
+ List of strings forming the fully-scoped name of the declaration.
+e.g. <span style="font-family:monospace">::foo::bar::baz</span> is represented as
+<span style="font-family:monospace">[&#X2019;foo&#X2019;,&#X2019;bar&#X2019;,&#X2019;baz&#X2019;]</span>.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">repoId()</span></span></dt><dd class="dd-description"><br>
+ Repository identifier of the declaration.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec19" Declaration classes-->
+<h4 id="sec19" class="subsubsection">2.3.6&#XA0;&#XA0;Declaration classes</h4><!--SEC END --><p>The declaration objects making up the tree have the following classes:</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Module (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Module declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">definitions()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Decl</span> objects declared within this module, in the
+order they were declared.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">continuations()</span></span></dt><dd class="dd-description"><br>
+ List containing <span style="font-family:monospace">Module</span> objects which are continuations of
+this module. When modules are re-opened, multiple <span style="font-family:monospace">Module</span>
+objects with the same name appear in the enclosing <span style="font-family:monospace">Module</span> or
+<span style="font-family:monospace">AST</span> object. In case it&#X2019;s useful, the first <span style="font-family:monospace">Module</span>
+object for a particular module has a list containing continuations
+of that module. You will probably not have any use for this.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Interface (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Interface declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">abstract()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the interface is declared abstract.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">inherits()</span></span></dt><dd class="dd-description"><br>
+ List of interfaces from which this one inherits. Each list member is
+either an <span style="font-family:monospace">Interface</span> object, or a <span style="font-family:monospace">Declarator</span> object
+belonging to a typedef to an interface.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">contents()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Decl</span> objects for all items declared within this
+interface.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarations()</span></span></dt><dd class="dd-description"><br>
+ Subset of <span style="font-family:monospace">contents()</span> containing types, constants and
+exceptions.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">callables()</span></span></dt><dd class="dd-description"><br>
+ Subset of <span style="font-family:monospace">contents()</span> containing <span style="font-family:monospace">Operation</span>s and
+<span style="font-family:monospace">Attribute</span>s.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Forward (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Forward-declared interface</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">abstract()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the interface is declared abstract.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">fullDecl()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">Interface</span> object corresponding to the full interface
+declaration or <span style="font-family:monospace">None</span> if there is no full declaration.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Const (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Constant declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object of the constant. Aliases not stripped.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constKind()</span></span></dt><dd class="dd-description"><br>
+ TypeCode kind of the constant with aliases stripped. So for a
+constant declared with:
+<pre class="verbatim">  typedef long MyLong;
+  const MyLong foo = 123;
+</pre>
+<span style="font-family:monospace">constKind()</span> will return <span style="font-family:monospace">tk_long</span>, but
+<span style="font-family:monospace">constType()</span> will return an <span style="font-family:monospace">idltype.Declared</span> object
+(see page&#XA0;<a href="#cls%3AtypeDeclared">??</a>) which refers to <span style="font-family:monospace">MyLong</span>&#X2019;s
+typedef <span style="font-family:monospace">Declarator</span> object.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">value()</span></span></dt><dd class="dd-description"><br>
+ Value of the constant. Either an integer or an <span style="font-family:monospace">Enumerator</span>
+object.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Declarator (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Declarator used in typedefs, struct members, attributes, etc.</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">sizes()</span></span></dt><dd class="dd-description"><br>
+ List of array sizes, or <span style="font-family:monospace">None</span> if it is a simple declarator.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">alias()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">Typedef</span> object that the declarator is part of, or <span style="font-family:monospace">None</span>
+if the object is not a typedef declarator.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Typedef (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Typedef declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">aliasType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object that this is an alias to.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constrType()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the alias type was constructed within this typedef
+declaration, like
+<pre class="verbatim">  typedef struct foo { long l; } bar;
+</pre></dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarators()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Declarator</span> objects.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Member (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Member of a struct or exception</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">memberType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for the type of this member.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constrType()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the member type was constructed within the member
+declaration. e.g.<pre class="verbatim">  struct S {
+    struct T {
+      long l;
+    } the_T;
+  };
+</pre></dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarators()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Declarator</span> objects.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Struct (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Struct declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">members()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Member</span> objects for the struct contents.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">recursive()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the struct is recursive, e.g.<pre class="verbatim">  struct S {
+    long l;
+    sequence &lt;S&gt; ss;
+  };
+</pre></dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Exception (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Exception declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">members()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Member</span> objects for the exception contents.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.CaseLabel (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">One label within a union</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">default()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if this is the default label.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">value()</span></span></dt><dd class="dd-description"><br>
+ Label value. Either an integer or an <span style="font-family:monospace">Enumerator</span> object. For
+the default case, returns a value used by none of the other union
+labels.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">labelKind()</span></span></dt><dd class="dd-description"><br>
+ TypeCode kind of the label.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.UnionCase (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">One case within a union</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">labels()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">CaseLabel</span> objects.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">caseType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for the case type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constrType()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the case type was constructed within the case.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarator()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">Declarator</span> object</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Union (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Union declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">switchType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object corresponding to the switch type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constrType()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the switch type was declared within the switch
+statement. Only possible for Enums.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">cases()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">UnionCase</span> objects.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">recursive()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the union is recursive.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Enumerator (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Enumerator of an enum</span></div><dl class="description"><dt class="dt-description"></dt><dd class="dd-description"><br>
+No non-inherited functions.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Enum (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Enum declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">enumerators()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Enumerator</span> objects.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Attribute (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Attribute declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">readonly()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the attribute is read only.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">attrType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for the attribute&#X2019;s type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarators()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Declarator</span> objects for this attribute. All
+declarators are guaranteed to be simple.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">identifiers()</span></span></dt><dd class="dd-description"><br>
+ Convenience function returning a list of strings containing the
+attribute identifiers from the declarators. e.g. for the
+declaration<pre class="verbatim">  attribute long a, b;
+</pre><p><span style="font-family:monospace">identifiers()</span> will return <span style="font-family:monospace">[&#X2019;a&#X2019;,&#X2019;b&#X2019;]</span>.</p></dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Parameter (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Parameter of an operation</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">direction()</span></span></dt><dd class="dd-description"><br>
+ Integer: 0 == in, 1 == out, 2 == inout.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">is_in()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if in or inout.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">is_out()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if out or inout.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">paramType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for the parameter type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">identifier()</span></span></dt><dd class="dd-description"><br>
+ String containing the parameter identifier.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Operation (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Operation declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">oneway()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the operation is one way.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">returnType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for the return type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">parameters()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Parameter</span> objects.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">raises()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Exception</span> objects which the operation can raise.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">contexts()</span></span></dt><dd class="dd-description"><br>
+ List of strings declared as context for the operation.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Native (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Native declaration</span></div><dl class="description"><dt class="dt-description"></dt><dd class="dd-description"><br>
+Native should not be used in normal IDL.<p>No non-inherited functions.</p></dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.StateMember (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">State member of a concrete valuetype</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">memberAccess()</span></span></dt><dd class="dd-description"><br>
+ Integer: 0 == public, 1 == private.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">memberType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for member type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constrType()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the member type is declared within the StateMember.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarators()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Declarator</span> objects.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Factory (Decl)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Factory method of a valuetype</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">identifier()</span></span></dt><dd class="dd-description"><br>
+ String containing the factory identifier.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">parameters()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Parameter</span> objects.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.ValueForward (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Forward-declared valuetype</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">abstract()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if declared abstract.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">fullDecl()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">Value</span> or <span style="font-family:monospace">ValueAbs</span> object corresponding to the full
+valuetype declaration or <span style="font-family:monospace">None</span> if there is no full declaration.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.ValueBox (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Boxed valuetype declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">boxedType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object for the boxed type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">constrType()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if boxed type is declared inside the valuetype
+declaration.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.ValueAbs (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Abstract valuetype declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">inherits()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">ValueAbs</span> objects from which this inherits.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">supports()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Interface</span> objects which this valuetype supports.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">contents()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Decl</span> objects for all items defined within this
+valuetype.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarations()</span></span></dt><dd class="dd-description"><br>
+ Subset of <span style="font-family:monospace">contents()</span> containing types, constants and
+exceptions.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">callables()</span></span></dt><dd class="dd-description"><br>
+ Subset of contents() containing <span style="font-family:monospace">Operation</span>s and
+<span style="font-family:monospace">Attribute</span>s.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast.Value (Decl,DeclRepoId)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Valuetype declaration</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">custom()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if declared custom.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">inherits()</span></span></dt><dd class="dd-description"><br>
+ List of valuetypes from which this inherits. The first may be a
+<span style="font-family:monospace">Value</span> object or a <span style="font-family:monospace">ValueAbs</span> object; any others will
+be <span style="font-family:monospace">ValueAbs</span> objects.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">truncatable()</span></span></dt><dd class="dd-description"><br>
+ Boolean: true if the inherited <span style="font-family:monospace">Value</span> is declared
+truncatable; false if not, or there is no inherited <span style="font-family:monospace">Value</span>.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">supports()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Interface</span> objects which this valuetype supports.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">contents()</span></span></dt><dd class="dd-description"><br>
+ List of <span style="font-family:monospace">Decl</span> objects for all items defined within this
+valuetype.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">declarations()</span></span></dt><dd class="dd-description"><br>
+ Subset of <span style="font-family:monospace">contents()</span> containing types, constants and
+exceptions.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">callables()</span></span></dt><dd class="dd-description"><br>
+ Subset of <span style="font-family:monospace">contents()</span> containing <span style="font-family:monospace">Operation</span>s,
+<span style="font-family:monospace">Attribute</span>s, <span style="font-family:monospace">StateMember</span>s and <span style="font-family:monospace">Factory</span>s.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec20" Type objects-->
+<h4 id="sec20" class="subsubsection">2.3.7&#XA0;&#XA0;Type objects</h4><!--SEC END --><p>All type objects are derived from the base class <span style="font-family:monospace">Type</span>:</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idltype.Type</span></span></div><br>
+<div class="center"><span style="font-style:italic">Base class for types</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">kind()</span></span></dt><dd class="dd-description"><br>
+ TypeCode kind of type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">unalias()</span></span></dt><dd class="dd-description"><br>
+ Return an equivalent <span style="font-family:monospace">Type</span> object with top-level aliases
+stripped. Only has an effect with typedef types.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">accept(visitor)</span></span></dt><dd class="dd-description"><br>
+ Visitor pattern accept.</dd></dl><hr style="height:2"></div><p>The basic CORBA types (null, void, short, long, unsigned short,
+unsigned long, float, double, boolean, char, octet, any, TypeCode,
+Principal, long long, unsigned long long, long double, and wide char)
+are represented by objects of type <span style="font-family:monospace">omniidl.idltype.Base</span>,
+derived from <span style="font-family:monospace">Type</span>, with no extra methods.</p><p>The template types&#X2014;string, wstring, sequence, and fixed&#X2014;do not
+have associated <span style="font-family:monospace">Decl</span> objects since they are not explicitly
+declared. They are always implicitly declared as part of another
+declaration.</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idltype.String (Type)</span></span></div><br>
+<div class="center"><span style="font-style:italic">String type</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">bound()</span></span></dt><dd class="dd-description"><br>
+ Bound of a bounded string, or 0 for unbounded strings.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idltype.WString (Type)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Wide string type</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">bound()</span></span></dt><dd class="dd-description"><br>
+ Bound of a bounded wstring, or 0 for unbounded wstrings.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idltype.Sequence (Type)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Sequence type</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">seqType()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">idltype.Type</span> object representing what the sequence contains.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">bound()</span></span></dt><dd class="dd-description"><br>
+ Bound of a bounded sequence, or 0 for unbounded sequences.</dd></dl><hr style="height:2"></div><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idltype.Fixed (Type)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Fixed point type</span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">digits()</span></span></dt><dd class="dd-description"><br>
+ Number of digits in number.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">scale()</span></span></dt><dd class="dd-description"><br>
+ Scale of number.</dd></dl><hr style="height:2"></div><p>All other types (interface, struct, union, enum, typedef, exception,
+valuetype) must be explicitly declared. They are represented with
+<span style="font-family:monospace">Declared</span> objects:</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idltype.Declared (Type)</span></span></div><br>
+<div class="center"><span style="font-style:italic">Explicitly declared type</span></div><dl class="description"><dt class="dt-description">
+<a id="cls:typeDeclared"></a><span style="font-weight:bold"><span style="font-family:monospace">decl()</span></span></dt><dd class="dd-description"><br>
+ <span style="font-family:monospace">omniidl.idlast.Decl</span> object which corresponds to this type.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">scopedName()</span></span></dt><dd class="dd-description"><br>
+ Fully scoped name of the type as a list of strings.</dd><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">name()</span></span></dt><dd class="dd-description"><br>
+ Simple name of the type, i.e. the last element of the scoped name.</dd></dl><hr style="height:2"></div>
+<!--TOC subsubsection id="sec21" Finding a named <span style="font-family:monospace">Decl</span>-->
+<h4 id="sec21" class="subsubsection">2.3.8&#XA0;&#XA0;Finding a named <span style="font-family:monospace">Decl</span></h4><!--SEC END --><p>Normally, back-ends walk over the tree of <span style="font-family:monospace">Decl</span> objects,
+dealing with the declarations as they encounter them. Occasionally,
+however, it may be useful to find a declaration by its scoped name.
+Only <span style="font-family:monospace">Decl</span>s which inherit from <span style="font-family:monospace">DeclRepoId</span> can be found
+in this way.</p><div class="minipage"><hr style="height:2"><br>
+<div class="center"><span style="font-weight:bold"><span style="font-family:monospace">omniidl.idlast</span></span></div><dl class="description"><dt class="dt-description"><span style="font-weight:bold"><span style="font-family:monospace">findDecl(scopedName)</span></span></dt><dd class="dd-description"><br>
+ Find the <span style="font-family:monospace">Decl</span> object which has the scoped name list
+<span style="font-family:monospace">scopedName</span>. If a declaration with the specified name does not
+exist, the <span style="font-family:monospace">DeclNotFound</span> exception is raised.</dd></dl><hr style="height:2"></div>
+<!--TOC subsection id="sec22" An example back-end-->
+<h3 id="sec22" class="subsection">2.4&#XA0;&#XA0;An example back-end</h3><!--SEC END --><p>The following code is an extremely simple back-end which just prints
+the names of all operations declared within an IDL file.
+Unfortunately, it is so simple that it does not show many features of
+the back-end interface. You should look at the <span style="font-family:monospace">dump.py</span> and
+<span style="font-family:monospace">python.py</span> back-ends for a more extensive example.</p><pre class="verbatim">from omniidl import idlast, idlvisitor, idlutil
+import string
+
+class ExampleVisitor (idlvisitor.AstVisitor):
+
+    def visitAST(self, node):
+        for n in node.declarations():
+            n.accept(self)
+
+    def visitModule(self, node):
+        for n in node.definitions():
+            n.accept(self)
+
+    def visitInterface(self, node):
+        name = idlutil.ccolonName(node.scopedName())
+
+        if node.mainFile():
+            for c in node.callables():
+                if isinstance(c, idlast.Operation):
+                    print(name + "::" +
+                          c.identifier() + "()")
+
+def run(tree, args):
+    visitor = ExampleVisitor()
+    tree.accept(visitor)
+</pre><p>The visitor object simply recurses through the <span style="font-family:monospace">AST</span> and
+<span style="font-family:monospace">Module</span> objects, and prints the operation names it finds in
+<span style="font-family:monospace">Interface</span> objects.</p><p>Note that since <span style="font-family:monospace">AstVisitor</span> (and similarly <span style="font-family:monospace">TypeVisitor</span>
+which is not used in the example) has all operations declared to be
+no-ops, the <span style="font-family:monospace">ExampleVisitor</span> class does not have to declare
+visit functions for all node types. This can be a disadvantage if your
+back-end is supposed to perform some action for all node types, since
+there will be no error if you accidentally miss a node type. In those
+situations it is better to declare a visitor class which does not
+derive from the visitor base classes.</p><!--BEGIN NOTES document-->
+<hr class="footnoterule"><dl class="thefootnotes"><dt class="dt-thefootnotes">
+<a id="note1" href="#text1">1</a></dt><dd class="dd-thefootnotes"><div class="footnotetext">It is even possible to use a Python module
+as a visitor object.</div></dd></dl>
+<!--END NOTES-->
+<!--CUT END -->
+<!--HTMLFOOT-->
+<!--ENDHTML-->
+<!--FOOTER-->
+<hr style="height:2"><blockquote class="quote"><em>This document was translated from L<sup>A</sup>T<sub>E</sub>X by
+</em><a href="http://hevea.inria.fr/index.html"><em>H</em><em><span style="font-size:small"><sup>E</sup></span></em><em>V</em><em><span style="font-size:small"><sup>E</sup></span></em><em>A</em></a><em>.</em></blockquote></body>
+</html>

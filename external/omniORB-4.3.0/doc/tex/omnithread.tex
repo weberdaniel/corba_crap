@@ -1,0 +1,217 @@
+\documentclass[11pt,oneside,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[scaled=0.9]{DejaVuSansMono}
+\usepackage[scaled=0.9]{DejaVuSans}
+\usepackage[scaled=0.9]{DejaVuSerif}
+\linespread{1.05}
+
+\addtolength{\oddsidemargin}{-0.2in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{0.5in}
+
+\pagestyle{headings}
+
+% Discretionary break used to split long function names cleanly
+%BEGIN LATEX
+\newcommand{\dsc}{\discretionary{}{}}
+%END LATEX
+%HEVEA\newcommand{\dsc}{}
+
+\title{The OMNI Thread Abstraction}
+
+\date{Version 4.3}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The OMNI thread abstraction is designed to provide a common set of
+thread operations for use in programs written in C++.  Programs
+written using the abstraction should be much easier to port between
+different architectures with different underlying threads primitives.
+
+The programming interface is designed to be similar to the C language
+interface to POSIX threads (IEEE draft standard 1003.1c --- previously
+1003.4a, often known as ``pthreads'' \cite{pthreads}).
+
+Much of the abstraction consists of simple C++ object wrappers around
+pthread calls.  However for some features such as thread-specific
+data, a better interface can be offered because of the use of C++.
+
+Some of the more complex features of pthreads are not supported
+because of the difficulty of ensuring the same features can be offered
+on top of other thread systems.  Such features include thread
+cancellation and complex scheduling control (though simple thread
+priorities are supported).
+
+See the \texttt{omnithread.h} header file for full details of the API.
+The descriptions below assume you have some previous knowledge of
+threads, mutexes, condition variables and semaphores.  Also refer to
+other documentation (\cite{birrell}, \cite{pthreads}) for further
+explanation of these ideas (particularly condition variables, the use
+of which may not be particularly intuitive when first encountered).
+
+
+\section{Synchronisation objects}
+
+Synchronisation objects are used to synchronise threads within the
+same process.  There is no inter-process synchronisation provided.
+The synchronisation objects provided are mutexes, condition variables
+and counting semaphores.
+
+\subsection{Mutex}
+
+An object of type \texttt{omni\_mutex} is used for mutual exclusion.
+It provides two operations, \texttt{lock()} and \texttt{unlock()}.
+The alternative names \texttt{acquire()} and \texttt{release()} can be
+used if preferred.  Behaviour is undefined when a thread attempts to
+lock the same mutex again or when a mutex is locked by one thread and
+unlocked by a different thread.
+
+
+\subsection{Condition Variable}
+
+A condition variable is represented by an \texttt{omni\_condition} and
+is used for signalling between threads.  A call to \texttt{wait()}
+causes a thread to wait on the condition variable.  A call to
+\texttt{signal()} wakes up at least one thread if any are waiting.  A
+call to \texttt{broadcast()} wakes up all threads waiting on the
+condition variable.
+
+When constructed, a pointer to an \texttt{omni\_mutex} must be given.
+A condition variable \texttt{wait()} has an implicit mutex
+\texttt{unlock()} and \texttt{lock()} around it.  The link between
+condition variable and mutex lasts for the lifetime of the condition
+variable (unlike pthreads where the link is only for the duration of
+the wait).  The same mutex may be used with several condition
+variables.
+
+A wait with a timeout can be achieved by calling
+\texttt{timed\_wait()}.  This is given an absolute time to wait until.
+The routine \texttt{omni\_thread::get\_time()} can be used to turn a
+relative time into an absolute time.  \texttt{timed\_wait()} returns
+\texttt{true} if the condition was signalled, \texttt{false} if the
+time expired before the condition variable was signalled.
+
+
+\subsection{Counting semaphores}
+
+An \texttt{omni\_semaphore} is a counting semaphore.  When created it
+is given an initial unsigned integer value.  When \texttt{wait()} is
+called, the value is decremented if non-zero.  If the value is zero
+then the thread blocks instead.  When \texttt{post()} is called, if
+any threads are blocked in \texttt{wait()}, exactly one thread is
+woken. If no threads were blocked then the value of the semaphore is
+incremented.
+
+If a thread calls \texttt{try\_wait()}, then the thread won't block if
+the semaphore's value is 0, returning \texttt{false} instead.
+
+There is no way of querying the value of the semaphore.
+
+
+
+\section{Thread object}
+
+A thread is represented by an \texttt{omni\_thread} object.  There are
+broadly two different ways in which it can be used.
+
+The first way is simply to create an \texttt{omni\_thread} object,
+giving a particular function which the thread should execute.  This is
+like the POSIX (or any other) C language interface.
+
+The second method of use is to create a new class which inherits from
+\texttt{omni\_\dsc{}thread}.  In this case the thread will execute the
+\texttt{run()} member function of the new class.  One advantage of
+this scheme is that thread-specific data can be implemented simply by
+having data members of the new class.
+
+When constructed a thread is in the "new" state and has not actually
+started.  A call to \texttt{start()} causes the thread to begin
+executing.  A static member function \texttt{create()} is provided to
+construct and start a thread in a single call.  A thread exits by
+calling \texttt{exit()} or by returning from the thread function.
+
+Threads can be either detached or undetached.  Detached threads are
+threads for which all state will be lost upon exit.  Other threads
+cannot determine when a detached thread will disappear, and therefore
+should not attempt to access the thread object unless some explicit
+synchronisation with the detached thread guarantees that it still
+exists.
+
+Undetached threads are threads for which storage is not reclaimed
+until another thread waits for its termination by calling
+\texttt{join()}.  An exit value can be passed from an undetached
+thread to the thread which joins it.
+
+Detached / undetached threads are distinguished on creation by the
+type of function they execute.  Undetached threads execute a function
+which has a \texttt{void*} return type, whereas detached threads
+execute a function which has a \texttt{void} return type.
+Unfortunately C++ member functions are not allowed to be distinguished
+simply by their return type.  Thus in the case of a derived class of
+\texttt{omni\_thread} which needs an undetached thread, the member
+function executed by the thread is called \texttt{run\_undetached()}
+rather than \texttt{run()}, and it is started by calling
+\texttt{start\_\dsc{}undetached()} instead of \texttt{start()}.
+
+The abstraction currently supports three priorities of thread, but no
+guarantee is made of how this will affect underlying thread
+scheduling.  The three priorities are \texttt{PRIORITY\_LOW},
+\texttt{PRIORITY\_NORMAL} and \texttt{PRIORITY\_HIGH}.  By default all
+threads run at \texttt{PRIORITY\_NORMAL}.  A different priority can be
+specified on thread creation, or while the thread is running using
+\texttt{set\_priority().}  A thread's current priority is returned by
+\texttt{priority()}.
+
+Other functions provided are \texttt{self()} which returns the calling
+thread's \texttt{omni\_\dsc{}thread} object, \texttt{yield()} which
+requests that other threads be allowed to run, \texttt{id()} which
+returns an integer id for the thread for use in debugging,
+\texttt{state()}, \texttt{sleep()} and \texttt{get\_time()}.
+
+
+
+\section{Per-thread data}
+
+omnithread supports per-thread data, via member functions of the
+\texttt{omni\_thread} object.
+
+First, you must allocate a key for with the
+\texttt{omni\_thread::allocate\_key()} function. Then, any object
+whose class is derived from \texttt{omni\_thread::value\_t} can be
+stored using the \texttt{set\_value()} function. Values are retrieved
+or removed with \texttt{get\_value()} and \texttt{remove\_value()}
+respectively.
+
+When the thread exits, all per-thread data is deleted (hence the base
+class with virtual destructor).
+
+Note that the per-thread data functions are \textbf{not} thread safe,
+so although you can access one thread's storage from another thread,
+there is no concurrency control. Unless you really know what you are
+doing, it is best to only access per-thread data from the thread it is
+attached to.
+
+
+\begin{thebibliography}{lo}
+
+\bibitem[POSIX94]{pthreads}
+\emph{Portable Operating System Interface (POSIX) Threads Extension},
+P1003.1c Draft 10,
+IEEE,
+September 1994.
+
+\bibitem[Birrell89]{birrell}
+\emph{An Introduction to Programming with Threads},
+Research Report 35,
+DEC Systems Research Center,
+Palo Alto, CA,
+January 1989.
+
+\end{thebibliography}
+
+\end{document}

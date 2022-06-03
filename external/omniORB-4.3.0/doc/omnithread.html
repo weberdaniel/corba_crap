@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.34">
+<style type="text/css">
+.li-itemize{margin:1ex 0ex;}
+.li-enumerate{margin:1ex 0ex;}
+.dd-description{margin:0ex 0ex 1ex 4ex;}
+.dt-description{margin:0ex;}
+.toc{list-style:none;}
+.footnotetext{margin:0ex; padding:0ex;}
+div.footnotetext P{margin:0px; text-indent:1em;}
+.thefootnotes{text-align:left;margin:0ex;}
+.dt-thefootnotes{margin:0em;}
+.dd-thefootnotes{margin:0em 0em 0em 2em;}
+.footnoterule{margin:1em auto 1em 0px;width:50%;}
+.caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
+.title{margin:2ex auto;text-align:center}
+.titlemain{margin:1ex 2ex 2ex 1ex;}
+.titlerest{margin:0ex 2ex;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.flushleft{text-align:left;margin-left:0ex;margin-right:auto;}
+.flushright{text-align:right;margin-left:auto;margin-right:0ex;}
+div table{margin-left:inherit;margin-right:inherit;margin-bottom:2px;margin-top:2px}
+td table{margin:auto;}
+table{border-collapse:collapse;}
+td{padding:0;}
+.cellpadding0 tr td{padding:0;}
+.cellpadding1 tr td{padding:1px;}
+pre{text-align:left;margin-left:0ex;margin-right:auto;}
+blockquote{margin-left:4ex;margin-right:4ex;text-align:left;}
+td p{margin:0px;}
+.boxed{border:1px solid black}
+.textboxed{border:1px solid black}
+.vbar{border:none;width:2px;background-color:black;}
+.hbar{border:none;height:2px;width:100%;background-color:black;}
+.hfill{border:none;height:1px;width:200%;background-color:black;}
+.vdisplay{border-collapse:separate;border-spacing:2px;width:auto; empty-cells:show; border:2px solid red;}
+.vdcell{white-space:nowrap;padding:0px; border:2px solid green;}
+.display{border-collapse:separate;border-spacing:2px;width:auto; border:none;}
+.dcell{white-space:nowrap;padding:0px; border:none;}
+.dcenter{margin:0ex auto;}
+.vdcenter{border:solid #FF8000 2px; margin:0ex auto;}
+.minipage{text-align:left; margin-left:0em; margin-right:auto;}
+.marginpar{border:solid thin black; width:20%; text-align:left;}
+.marginparleft{float:left; margin-left:0ex; margin-right:1ex;}
+.marginparright{float:right; margin-left:1ex; margin-right:0ex;}
+.theorem{text-align:left;margin:1ex auto 1ex 0ex;}
+.part{margin:2ex auto;text-align:center}
+</style>
+<title>The OMNI Thread Abstraction
+</title>
+</head>
+<body >
+<!--HEVEA command line is: hevea omnithread.tex -->
+<!--CUT STYLE article--><!--CUT DEF section 1 --><table class="title"><tr><td style="padding:1ex"><h1 class="titlemain">The OMNI Thread Abstraction</h1><h3 class="titlerest">Version 4.3</h3></td></tr>
+</table>
+<!--TOC section id="sec1" Introduction-->
+<h2 id="sec1" class="section">1&#XA0;&#XA0;Introduction</h2><!--SEC END --><p>The OMNI thread abstraction is designed to provide a common set of
+thread operations for use in programs written in C++. Programs
+written using the abstraction should be much easier to port between
+different architectures with different underlying threads primitives.</p><p>The programming interface is designed to be similar to the C language
+interface to POSIX threads (IEEE draft standard 1003.1c &#X2014; previously
+1003.4a, often known as &#X201C;pthreads&#X201D; [<a href="#pthreads">POSIX94</a>]).</p><p>Much of the abstraction consists of simple C++ object wrappers around
+pthread calls. However for some features such as thread-specific
+data, a better interface can be offered because of the use of C++.</p><p>Some of the more complex features of pthreads are not supported
+because of the difficulty of ensuring the same features can be offered
+on top of other thread systems. Such features include thread
+cancellation and complex scheduling control (though simple thread
+priorities are supported).</p><p>See the <span style="font-family:monospace">omnithread.h</span> header file for full details of the API.
+The descriptions below assume you have some previous knowledge of
+threads, mutexes, condition variables and semaphores. Also refer to
+other documentation ([<a href="#birrell">Birrell89</a>], [<a href="#pthreads">POSIX94</a>]) for further
+explanation of these ideas (particularly condition variables, the use
+of which may not be particularly intuitive when first encountered).</p>
+<!--TOC section id="sec2" Synchronisation objects-->
+<h2 id="sec2" class="section">2&#XA0;&#XA0;Synchronisation objects</h2><!--SEC END --><p>Synchronisation objects are used to synchronise threads within the
+same process. There is no inter-process synchronisation provided.
+The synchronisation objects provided are mutexes, condition variables
+and counting semaphores.</p>
+<!--TOC subsection id="sec3" Mutex-->
+<h3 id="sec3" class="subsection">2.1&#XA0;&#XA0;Mutex</h3><!--SEC END --><p>An object of type <span style="font-family:monospace">omni_mutex</span> is used for mutual exclusion.
+It provides two operations, <span style="font-family:monospace">lock()</span> and <span style="font-family:monospace">unlock()</span>.
+The alternative names <span style="font-family:monospace">acquire()</span> and <span style="font-family:monospace">release()</span> can be
+used if preferred. Behaviour is undefined when a thread attempts to
+lock the same mutex again or when a mutex is locked by one thread and
+unlocked by a different thread.</p>
+<!--TOC subsection id="sec4" Condition Variable-->
+<h3 id="sec4" class="subsection">2.2&#XA0;&#XA0;Condition Variable</h3><!--SEC END --><p>A condition variable is represented by an <span style="font-family:monospace">omni_condition</span> and
+is used for signalling between threads. A call to <span style="font-family:monospace">wait()</span>
+causes a thread to wait on the condition variable. A call to
+<span style="font-family:monospace">signal()</span> wakes up at least one thread if any are waiting. A
+call to <span style="font-family:monospace">broadcast()</span> wakes up all threads waiting on the
+condition variable.</p><p>When constructed, a pointer to an <span style="font-family:monospace">omni_mutex</span> must be given.
+A condition variable <span style="font-family:monospace">wait()</span> has an implicit mutex
+<span style="font-family:monospace">unlock()</span> and <span style="font-family:monospace">lock()</span> around it. The link between
+condition variable and mutex lasts for the lifetime of the condition
+variable (unlike pthreads where the link is only for the duration of
+the wait). The same mutex may be used with several condition
+variables.</p><p>A wait with a timeout can be achieved by calling
+<span style="font-family:monospace">timed_wait()</span>. This is given an absolute time to wait until.
+The routine <span style="font-family:monospace">omni_thread::get_time()</span> can be used to turn a
+relative time into an absolute time. <span style="font-family:monospace">timed_wait()</span> returns
+<span style="font-family:monospace">true</span> if the condition was signalled, <span style="font-family:monospace">false</span> if the
+time expired before the condition variable was signalled.</p>
+<!--TOC subsection id="sec5" Counting semaphores-->
+<h3 id="sec5" class="subsection">2.3&#XA0;&#XA0;Counting semaphores</h3><!--SEC END --><p>An <span style="font-family:monospace">omni_semaphore</span> is a counting semaphore. When created it
+is given an initial unsigned integer value. When <span style="font-family:monospace">wait()</span> is
+called, the value is decremented if non-zero. If the value is zero
+then the thread blocks instead. When <span style="font-family:monospace">post()</span> is called, if
+any threads are blocked in <span style="font-family:monospace">wait()</span>, exactly one thread is
+woken. If no threads were blocked then the value of the semaphore is
+incremented.</p><p>If a thread calls <span style="font-family:monospace">try_wait()</span>, then the thread won&#X2019;t block if
+the semaphore&#X2019;s value is 0, returning <span style="font-family:monospace">false</span> instead.</p><p>There is no way of querying the value of the semaphore.</p>
+<!--TOC section id="sec6" Thread object-->
+<h2 id="sec6" class="section">3&#XA0;&#XA0;Thread object</h2><!--SEC END --><p>A thread is represented by an <span style="font-family:monospace">omni_thread</span> object. There are
+broadly two different ways in which it can be used.</p><p>The first way is simply to create an <span style="font-family:monospace">omni_thread</span> object,
+giving a particular function which the thread should execute. This is
+like the POSIX (or any other) C language interface.</p><p>The second method of use is to create a new class which inherits from
+<span style="font-family:monospace">omni_thread</span>. In this case the thread will execute the
+<span style="font-family:monospace">run()</span> member function of the new class. One advantage of
+this scheme is that thread-specific data can be implemented simply by
+having data members of the new class.</p><p>When constructed a thread is in the "new" state and has not actually
+started. A call to <span style="font-family:monospace">start()</span> causes the thread to begin
+executing. A static member function <span style="font-family:monospace">create()</span> is provided to
+construct and start a thread in a single call. A thread exits by
+calling <span style="font-family:monospace">exit()</span> or by returning from the thread function.</p><p>Threads can be either detached or undetached. Detached threads are
+threads for which all state will be lost upon exit. Other threads
+cannot determine when a detached thread will disappear, and therefore
+should not attempt to access the thread object unless some explicit
+synchronisation with the detached thread guarantees that it still
+exists.</p><p>Undetached threads are threads for which storage is not reclaimed
+until another thread waits for its termination by calling
+<span style="font-family:monospace">join()</span>. An exit value can be passed from an undetached
+thread to the thread which joins it.</p><p>Detached / undetached threads are distinguished on creation by the
+type of function they execute. Undetached threads execute a function
+which has a <span style="font-family:monospace">void*</span> return type, whereas detached threads
+execute a function which has a <span style="font-family:monospace">void</span> return type.
+Unfortunately C++ member functions are not allowed to be distinguished
+simply by their return type. Thus in the case of a derived class of
+<span style="font-family:monospace">omni_thread</span> which needs an undetached thread, the member
+function executed by the thread is called <span style="font-family:monospace">run_undetached()</span>
+rather than <span style="font-family:monospace">run()</span>, and it is started by calling
+<span style="font-family:monospace">start_undetached()</span> instead of <span style="font-family:monospace">start()</span>.</p><p>The abstraction currently supports three priorities of thread, but no
+guarantee is made of how this will affect underlying thread
+scheduling. The three priorities are <span style="font-family:monospace">PRIORITY_LOW</span>,
+<span style="font-family:monospace">PRIORITY_NORMAL</span> and <span style="font-family:monospace">PRIORITY_HIGH</span>. By default all
+threads run at <span style="font-family:monospace">PRIORITY_NORMAL</span>. A different priority can be
+specified on thread creation, or while the thread is running using
+<span style="font-family:monospace">set_priority().</span> A thread&#X2019;s current priority is returned by
+<span style="font-family:monospace">priority()</span>.</p><p>Other functions provided are <span style="font-family:monospace">self()</span> which returns the calling
+thread&#X2019;s <span style="font-family:monospace">omni_thread</span> object, <span style="font-family:monospace">yield()</span> which
+requests that other threads be allowed to run, <span style="font-family:monospace">id()</span> which
+returns an integer id for the thread for use in debugging,
+<span style="font-family:monospace">state()</span>, <span style="font-family:monospace">sleep()</span> and <span style="font-family:monospace">get_time()</span>.</p>
+<!--TOC section id="sec7" Per-thread data-->
+<h2 id="sec7" class="section">4&#XA0;&#XA0;Per-thread data</h2><!--SEC END --><p>omnithread supports per-thread data, via member functions of the
+<span style="font-family:monospace">omni_thread</span> object.</p><p>First, you must allocate a key for with the
+<span style="font-family:monospace">omni_thread::allocate_key()</span> function. Then, any object
+whose class is derived from <span style="font-family:monospace">omni_thread::value_t</span> can be
+stored using the <span style="font-family:monospace">set_value()</span> function. Values are retrieved
+or removed with <span style="font-family:monospace">get_value()</span> and <span style="font-family:monospace">remove_value()</span>
+respectively.</p><p>When the thread exits, all per-thread data is deleted (hence the base
+class with virtual destructor).</p><p>Note that the per-thread data functions are <span style="font-weight:bold">not</span> thread safe,
+so although you can access one thread&#X2019;s storage from another thread,
+there is no concurrency control. Unless you really know what you are
+doing, it is best to only access per-thread data from the thread it is
+attached to.</p><!--TOC section id="sec8" References-->
+<h2 id="sec8" class="section">References</h2><!--SEC END --><dl class="thebibliography"><dt class="dt-thebibliography">
+<a id="pthreads">[POSIX94]</a></dt><dd class="dd-thebibliography">
+<em>Portable Operating System Interface (POSIX) Threads Extension</em>,
+P1003.1c Draft 10,
+IEEE,
+September 1994.</dd><dt class="dt-thebibliography"><a id="birrell">[Birrell89]</a></dt><dd class="dd-thebibliography">
+<em>An Introduction to Programming with Threads</em>,
+Research Report 35,
+DEC Systems Research Center,
+Palo Alto, CA,
+January 1989.</dd></dl><!--CUT END -->
+<!--HTMLFOOT-->
+<!--ENDHTML-->
+<!--FOOTER-->
+<hr style="height:2"><blockquote class="quote"><em>This document was translated from L<sup>A</sup>T<sub>E</sub>X by
+</em><a href="http://hevea.inria.fr/index.html"><em>H</em><em><span style="font-size:small"><sup>E</sup></span></em><em>V</em><em><span style="font-size:small"><sup>E</sup></span></em><em>A</em></a><em>.</em></blockquote></body>
+</html>
