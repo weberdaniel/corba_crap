@@ -19,7 +19,7 @@ jobs:
       run: echo `ls`
     - name: pwd 
       run: echo `pwd`
-    - name: build corba
+    - name: goto external
       run: cd external
     - name: pwd 
       run: echo `pwd`
