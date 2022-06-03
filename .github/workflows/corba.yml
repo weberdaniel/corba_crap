@@ -17,4 +17,9 @@ jobs:
     - name: ls
       run: echo `ls`
     - name: ls
-      run: cd external/omniORB-4.3.0 && ./configure
+      run: cd external/omniORB-4.3.0 && 
+           mkdir build &&
+           cd build &&
+           ../configure &&
+           make &&
+           make install 
