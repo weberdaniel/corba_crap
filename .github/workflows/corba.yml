@@ -14,9 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: ls
-      run: echo `ls`
-    - name: ls
+        
+    - name: Cache External
+      id: cache-external
+      uses: actions/cache@v3
+      with:
+        path: external
+        key: ${{ runner.os }}-external
+
+    - name: External dependencies
+      if: steps.cache-external.outputs.cache-hit != 'true'
       run: cd external/omniORB-4.3.0 && 
            mkdir build &&
            cd build &&
