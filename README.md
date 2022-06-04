@@ -1,2 +1,2 @@
 # corba_crap
-crap
+crap^2
