@@ -1,0 +1,822 @@
++ rm -f omniNames
++ g++ -o omniNames -O3 -Wall -Wno-unused -fexceptions -L../../../lib -L../../../../lib omniNames.o NamingContext_i.o log.o omniNamesWin.o -lomniORB4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0755 omniNames ../../../bin
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/omniNames'
+making export in src/appl/utils...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils'
+making export in src/appl/utils/genior...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/genior'
+../../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/genior -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../../../../../src/appl/utils/genior/genior.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/genior -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o genior.o ../../../../../src/appl/utils/genior/genior.cc
++ rm -f genior
++ g++ -o genior -O3 -Wall -Wno-unused -fexceptions -L../../../../lib -L../../../../../lib genior.o -lomniORB4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0755 genior ../../../../bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/genior'
+making export in src/appl/utils/catior...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/catior'
+../../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/catior -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../../../../../src/appl/utils/catior/catior.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/catior -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o catior.o ../../../../../src/appl/utils/catior/catior.cc
++ rm -f catior
++ g++ -o catior -O3 -Wall -Wno-unused -fexceptions -L../../../../lib -L../../../../../lib catior.o -lomniORB4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0755 catior ../../../../bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/catior'
+making export in src/appl/utils/convertior...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/convertior'
+../../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/convertior -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../../../../../src/appl/utils/convertior/convertior.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/convertior -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o convertior.o ../../../../../src/appl/utils/convertior/convertior.cc
++ rm -f convertior
++ g++ -o convertior -O3 -Wall -Wno-unused -fexceptions -L../../../../lib -L../../../../../lib convertior.o -lomniORB4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0755 convertior ../../../../bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/convertior'
+making export in src/appl/utils/nameclt...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/nameclt'
+../../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/nameclt -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../../../../../src/appl/utils/nameclt/nameclt.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -I. -I../../../../../src/appl/utils/nameclt -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o nameclt.o ../../../../../src/appl/utils/nameclt/nameclt.cc
++ rm -f nameclt
++ g++ -o nameclt -O3 -Wall -Wno-unused -fexceptions -L../../../../lib -L../../../../../lib nameclt.o -lomniORB4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0755 nameclt ../../../../bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/nameclt'
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils'
+making export in src/appl/omniMapper...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/omniMapper'
+../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -D__OMNIORB4__ -I../../../stub -D_REENTRANT -DCONFIG_FILE_ENV_VAR="OMNIMAPPER_CONFIG" -DCONFIG_FILE_DEFAULT="/etc/omniMapper.cfg" -I. -I../../../../src/appl/omniMapper -I../../../include -I../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../../../../src/appl/omniMapper/omniMapper.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../stub -D_REENTRANT -DCONFIG_FILE_ENV_VAR=\"OMNIMAPPER_CONFIG\" -DCONFIG_FILE_DEFAULT=\"/etc/omniMapper.cfg\" -I. -I../../../../src/appl/omniMapper -I../../../include -I../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o omniMapper.o ../../../../src/appl/omniMapper/omniMapper.cc
++ rm -f omniMapper
++ g++ -o omniMapper -O3 -Wall -Wno-unused -fexceptions -L../../../lib -L../../../../lib omniMapper.o -lomniORB4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0755 omniMapper ../../../bin
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/omniMapper'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl'
+making export in src/services...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/src/services'
+making export in src/services/mklib...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/services/mklib'
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosLifeCycle.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosNotifyChannelAdmin.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosNotifyFilter.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosNotifyComm.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosNotification.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosEventChannelAdmin.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosEventComm.idl	
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/CosTime.idl
+../../../bin/omniidl -bcxx -Wba -Wbuse_quotes -I../../../../idl -I. -I../../../idl/COS -I../../../../idl/COS ../../../../idl/COS/TimeBase.idl	
+../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -D__OMNIORB4__ -I../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I. -I../../../../src/services/mklib -I../../../include -I../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ CosLifeCycleSK.cc CosNotifyChannelAdminSK.cc CosNotifyFilterSK.cc CosNotifyCommSK.cc CosNotificationSK.cc CosEventChannelAdminSK.cc CosEventCommSK.cc CosTimeSK.cc TimeBaseSK.cc CosLifeCycleDynSK.cc CosNotifyChannelAdminDynSK.cc CosNotifyFilterDynSK.cc CosNotifyCommDynSK.cc CosNotificationDynSK.cc CosEventChannelAdminDynSK.cc CosEventCommDynSK.cc CosTimeDynSK.cc TimeBaseDynSK.cc
++ ../../../../bin/scripts/omkdirhier ../../../include/COS
++ /usr/bin/install -c -m 0644 TimeBase.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosTime.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosEventComm.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosEventChannelAdmin.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosNotification.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosNotifyComm.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosNotifyFilter.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosNotifyChannelAdmin.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 CosLifeCycle.hh ../../../include/COS
++ /usr/bin/install -c -m 0644 ../../../../src/services/mklib/COS_sysdep.h ../../../include/COS
+making export in src/services/mklib/stublib...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/services/mklib/stublib'
+../../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -p static/ -p shared/ -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../CosLifeCycleSK.cc ../CosNotifyChannelAdminSK.cc ../CosNotifyFilterSK.cc ../CosNotifyCommSK.cc ../CosNotificationSK.cc ../CosEventChannelAdminSK.cc ../CosEventCommSK.cc ../CosTimeSK.cc ../TimeBaseSK.cc
++ ../../../../../bin/scripts/omkdirhier static
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/TimeBaseSK.o ../TimeBaseSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosTimeSK.o ../CosTimeSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosEventCommSK.o ../CosEventCommSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosEventChannelAdminSK.o ../CosEventChannelAdminSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotificationSK.o ../CosNotificationSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotifyCommSK.o ../CosNotifyCommSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotifyFilterSK.o ../CosNotifyFilterSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotifyChannelAdminSK.o ../CosNotifyChannelAdminSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosLifeCycleSK.o ../CosLifeCycleSK.cc
++ rm -f static/libCOS4.a
++ ar cq static/libCOS4.a static/TimeBaseSK.o static/CosTimeSK.o static/CosEventCommSK.o static/CosEventChannelAdminSK.o static/CosNotificationSK.o static/CosNotifyCommSK.o static/CosNotifyFilterSK.o static/CosNotifyChannelAdminSK.o static/CosLifeCycleSK.o
++ ranlib static/libCOS4.a
++ ../../../../../bin/scripts/omkdirhier shared
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/TimeBaseSK.o ../TimeBaseSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosTimeSK.o ../CosTimeSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosEventCommSK.o ../CosEventCommSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosEventChannelAdminSK.o ../CosEventChannelAdminSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotificationSK.o ../CosNotificationSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotifyCommSK.o ../CosNotifyCommSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotifyFilterSK.o ../CosNotifyFilterSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotifyChannelAdminSK.o ../CosNotifyChannelAdminSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/stublib/.. -I. -I../../../../../src/services/mklib/stublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosLifeCycleSK.o ../CosLifeCycleSK.cc
++ rm -f shared/libCOS4.so.3.0
++ g++ -shared -Wl,-soname,libCOS4.so.3 -o shared/libCOS4.so.3.0 -L../../../../lib -L../../../../../lib shared/TimeBaseSK.o shared/CosTimeSK.o shared/CosEventCommSK.o shared/CosEventChannelAdminSK.o shared/CosNotificationSK.o shared/CosNotifyCommSK.o shared/CosNotifyFilterSK.o shared/CosNotifyChannelAdminSK.o shared/CosLifeCycleSK.o -lomniORB4 -lomniDynamic4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0644 static/libCOS4.a ../../../../lib
++ /usr/bin/install -c -m 0644 shared/libCOS4.so.3.0 ../../../../lib
++ cd ../../../../lib
++ rm -f libCOS4.so.3
++ ln -s libCOS4.so.3.0 libCOS4.so.3
++ rm -f libCOS4.so
++ ln -s libCOS4.so.3 libCOS4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/services/mklib/stublib'
+making export in src/services/mklib/dynstublib...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/services/mklib/dynstublib'
+../../../../bin/omkdepend -D__cplusplus -D__GNUG__ -D__GNUC__ -p static/ -p shared/ -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ ../CosLifeCycleDynSK.cc ../CosNotifyChannelAdminDynSK.cc ../CosNotifyFilterDynSK.cc ../CosNotifyCommDynSK.cc ../CosNotificationDynSK.cc ../CosEventChannelAdminDynSK.cc ../CosEventCommDynSK.cc ../CosTimeDynSK.cc ../TimeBaseDynSK.cc
++ ../../../../../bin/scripts/omkdirhier static
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/TimeBaseDynSK.o ../TimeBaseDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosTimeDynSK.o ../CosTimeDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosEventCommDynSK.o ../CosEventCommDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosEventChannelAdminDynSK.o ../CosEventChannelAdminDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotificationDynSK.o ../CosNotificationDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotifyCommDynSK.o ../CosNotifyCommDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotifyFilterDynSK.o ../CosNotifyFilterDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosNotifyChannelAdminDynSK.o ../CosNotifyChannelAdminDynSK.cc
+g++ -c -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__ -o static/CosLifeCycleDynSK.o ../CosLifeCycleDynSK.cc
++ rm -f static/libCOSDynamic4.a
++ ar cq static/libCOSDynamic4.a static/TimeBaseDynSK.o static/CosTimeDynSK.o static/CosEventCommDynSK.o static/CosEventChannelAdminDynSK.o static/CosNotificationDynSK.o static/CosNotifyCommDynSK.o static/CosNotifyFilterDynSK.o static/CosNotifyChannelAdminDynSK.o static/CosLifeCycleDynSK.o
++ ranlib static/libCOSDynamic4.a
++ ../../../../../bin/scripts/omkdirhier shared
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/TimeBaseDynSK.o ../TimeBaseDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosTimeDynSK.o ../CosTimeDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosEventCommDynSK.o ../CosEventCommDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosEventChannelAdminDynSK.o ../CosEventChannelAdminDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotificationDynSK.o ../CosNotificationDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotifyCommDynSK.o ../CosNotifyCommDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotifyFilterDynSK.o ../CosNotifyFilterDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosNotifyChannelAdminDynSK.o ../CosNotifyChannelAdminDynSK.cc
+g++ -c -fPIC -O3 -Wall -Wno-unused -fexceptions  -D__OMNIORB4__ -I../../../../stub -D_REENTRANT -D_COS_LIBRARY -DENABLE_CLIENT_IR_SUPPORT -I../../../../../src/services/mklib/dynstublib/.. -I. -I../../../../../src/services/mklib/dynstublib -I../../../../include -I../../../../../include -D__OSVERSION__=2 -D__linux__ -D__x86_64__  -o shared/CosLifeCycleDynSK.o ../CosLifeCycleDynSK.cc
++ rm -f shared/libCOSDynamic4.so.3.0
++ g++ -shared -Wl,-soname,libCOSDynamic4.so.3 -o shared/libCOSDynamic4.so.3.0 -L../../../../lib -L../../../../../lib shared/TimeBaseDynSK.o shared/CosTimeDynSK.o shared/CosEventCommDynSK.o shared/CosEventChannelAdminDynSK.o shared/CosNotificationDynSK.o shared/CosNotifyCommDynSK.o shared/CosNotifyFilterDynSK.o shared/CosNotifyChannelAdminDynSK.o shared/CosLifeCycleDynSK.o -lCOS4 -lomniORB4 -lomniDynamic4 -lomnithread -lpthread
++ /usr/bin/install -c -m 0644 static/libCOSDynamic4.a ../../../../lib
++ /usr/bin/install -c -m 0644 shared/libCOSDynamic4.so.3.0 ../../../../lib
++ cd ../../../../lib
++ rm -f libCOSDynamic4.so.3
++ ln -s libCOSDynamic4.so.3.0 libCOSDynamic4.so.3
++ rm -f libCOSDynamic4.so
++ ln -s libCOSDynamic4.so.3 libCOSDynamic4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/services/mklib/dynstublib'
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/services/mklib'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/src/services'
+make[1]: Leaving directory '/opt/omniORB-4.3.0/build/src'
+making install in ./src...
+make[1]: Entering directory '/opt/omniORB-4.3.0/build/src'
+making install in src/tool...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/src/tool'
+making install in src/tool/omkdepend...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omkdepend'
++ /usr/bin/install -c -m 0755 omkdepend /usr/local/bin
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omkdepend'
+making install in src/tool/omniidl...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl'
+making install in src/tool/omniidl/cxx...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/cxx'
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<string>:1: DeprecationWarning: SO is deprecated, use EXT_SUFFIX
+making install in src/tool/omniidl/cxx/cccp...
+make[5]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/cxx/cccp'
++ /usr/bin/install -c -m 0755 omnicpp /usr/local/bin
+make[5]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/cxx/cccp'
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<string>:1: DeprecationWarning: SO is deprecated, use EXT_SUFFIX
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<string>:1: DeprecationWarning: SO is deprecated, use EXT_SUFFIX
++ ../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages
++ /usr/bin/install -c -m 0644 _omniidl.cpython-310-x86_64-linux-gnu.so.4.3 /usr/local/local/lib/python3.10/dist-packages
++ cd /usr/local/local/lib/python3.10/dist-packages
++ rm -f _omniidl.cpython-310-x86_64-linux-gnu.so.4
++ ln -s _omniidl.cpython-310-x86_64-linux-gnu.so.4.3 _omniidl.cpython-310-x86_64-linux-gnu.so.4
++ rm -f _omniidl.cpython-310-x86_64-linux-gnu.so
++ ln -s _omniidl.cpython-310-x86_64-linux-gnu.so.4 _omniidl.cpython-310-x86_64-linux-gnu.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/cxx'
+making install in src/tool/omniidl/python3...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3'
+making install in src/tool/omniidl/python3/omniidl...
+make[5]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3/omniidl'
++ ../../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/main.py /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/idlast.py /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/idltype.py /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/idlutil.py /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/idlvisitor.py /usr/local/local/lib/python3.10/dist-packages/omniidl
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl/output.py /usr/local/local/lib/python3.10/dist-packages/omniidl
+Listing '.'...
+Compiling './__init__.py'...
+Compiling './idlast.py'...
+Compiling './idltype.py'...
+Compiling './idlutil.py'...
+Compiling './idlvisitor.py'...
+Compiling './main.py'...
+Compiling './output.py'...
+make[5]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3/omniidl'
+making install in src/tool/omniidl/python3/omniidl_be...
+make[5]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3/omniidl_be'
++ ../../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages/omniidl_be
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl_be/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl_be/ami.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl_be/dump.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl_be/example.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be
++ /usr/bin/install -c -m 0644 ../../../../../../src/tool/omniidl/python3/omniidl_be/interactive.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be
+Listing '.'...
+Compiling './__init__.py'...
+Compiling './ami.py'...
+Compiling './dump.py'...
+Compiling './example.py'...
+Compiling './interactive.py'...
+make[5]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3/omniidl_be'
+making install in src/tool/omniidl/python3/scripts...
+make[5]: Entering directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3/scripts'
++ /usr/bin/install -c -m 0755 omniidl /usr/local/bin
++ /usr/bin/install -c -m 0755 ../../../../../../src/tool/omniidl/python3/scripts/omniidlrun.py /usr/local/bin
+make[5]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3/scripts'
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl/python3'
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool/omniidl'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/src/tool'
+making install in src/lib...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/src/lib'
+making install in src/lib/omnithread...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omnithread'
++ rm -f static/libomnithread.a
++ ar cq static/libomnithread.a static/posix.o static/threaddata.o
++ ranlib static/libomnithread.a
++ /usr/bin/install -c -m 0644 static/libomnithread.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomnithread.so.4.3 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomnithread.so.4
++ ln -s libomnithread.so.4.3 libomnithread.so.4
++ rm -f libomnithread.so
++ ln -s libomnithread.so.4 libomnithread.so
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omnithread'
+making install in src/lib/omniORB...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB'
++ ../../../../bin/scripts/omkdirhier /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/distdate.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/Naming.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/corbaidl_defs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/corbaidl_operators.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/corbaidl_poa.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/ir_defs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/ir_operators.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/ir_poa.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/boxes_defs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/boxes_operators.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/boxes_poa.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/pollable_defs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/pollable_operators.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/pollable_poa.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/poa_enums_defs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/poa_enums_operators.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/poa_enums_poa.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/omniTypedefs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/bootstrap.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/omniConnectionData.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/messaging.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/compression.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/messaging_policy.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/ziop_defs.hh /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 omniORB4/ziop_operators.hh /usr/local/include/omniORB4
+making install in src/lib/omniORB/python3...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3'
+making install in src/lib/omniORB/python3/omniidl_be...
+make[5]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be'
+making install in src/lib/omniORB/python3/omniidl_be/cxx...
+make[6]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx'
+making install in src/lib/omniORB/python3/omniidl_be/cxx/header...
+make[7]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/header'
++ ../../../../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/defs.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/opers.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/poa.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/tie.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/forward.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/marshal.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/obv.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/header/template.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/header
+make[7]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/header'
+making install in src/lib/omniORB/python3/omniidl_be/cxx/skel...
+make[7]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/skel'
++ ../../../../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/skel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/skel/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/skel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/skel/main.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/skel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/skel/poa.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/skel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/skel/template.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/skel
+make[7]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/skel'
+making install in src/lib/omniORB/python3/omniidl_be/cxx/dynskel...
+make[7]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/dynskel'
++ ../../../../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/dynskel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/dynskel/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/dynskel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/dynskel/main.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/dynskel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/dynskel/typecode.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/dynskel
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/dynskel/template.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/dynskel
+make[7]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/dynskel'
+making install in src/lib/omniORB/python3/omniidl_be/cxx/impl...
+make[7]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/impl'
++ ../../../../../../../../bin/scripts/omkdirhier /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/impl
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/impl/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/impl
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/impl/main.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/impl
++ /usr/bin/install -c -m 0644 ../../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/impl/template.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx/impl
+Listing '.'...
+Compiling './__init__.py'...
+Compiling './main.py'...
+Compiling './template.py'...
+make[7]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx/impl'
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/__init__.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/util.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/skutil.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/id.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/types.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/config.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/output.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/ast.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/iface.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/call.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/cxx.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/support.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/descriptor.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/mapping.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/mangler.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
++ /usr/bin/install -c -m 0644 ../../../../../../../src/lib/omniORB/python3/omniidl_be/cxx/value.py /usr/local/local/lib/python3.10/dist-packages/omniidl_be/cxx
+Listing 'cxx'...
+Compiling 'cxx/__init__.py'...
+Compiling 'cxx/ast.py'...
+Compiling 'cxx/call.py'...
+Compiling 'cxx/config.py'...
+Compiling 'cxx/cxx.py'...
+Compiling 'cxx/descriptor.py'...
+Listing 'cxx/dynskel'...
+Compiling 'cxx/dynskel/__init__.py'...
+Compiling 'cxx/dynskel/main.py'...
+Compiling 'cxx/dynskel/template.py'...
+Compiling 'cxx/dynskel/typecode.py'...
+Listing 'cxx/header'...
+Compiling 'cxx/header/__init__.py'...
+Compiling 'cxx/header/defs.py'...
+Compiling 'cxx/header/forward.py'...
+Compiling 'cxx/header/marshal.py'...
+Compiling 'cxx/header/obv.py'...
+Compiling 'cxx/header/opers.py'...
+Compiling 'cxx/header/poa.py'...
+Compiling 'cxx/header/template.py'...
+Compiling 'cxx/header/tie.py'...
+Compiling 'cxx/id.py'...
+Compiling 'cxx/iface.py'...
+Listing 'cxx/impl'...
+Compiling 'cxx/mangler.py'...
+Compiling 'cxx/mapping.py'...
+Compiling 'cxx/output.py'...
+Listing 'cxx/skel'...
+Compiling 'cxx/skel/__init__.py'...
+Compiling 'cxx/skel/main.py'...
+Compiling 'cxx/skel/poa.py'...
+Compiling 'cxx/skel/template.py'...
+Compiling 'cxx/skutil.py'...
+Compiling 'cxx/support.py'...
+Compiling 'cxx/types.py'...
+Compiling 'cxx/util.py'...
+Compiling 'cxx/value.py'...
+make[6]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be/cxx'
+File __init__.py hasn't changed.
+make[5]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3/omniidl_be'
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/python3'
+making install in src/lib/omniORB/orbcore...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/orbcore'
++ /usr/bin/install -c -m 0644 static/libomniORB4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomniORB4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomniORB4.so.3
++ ln -s libomniORB4.so.3.0 libomniORB4.so.3
++ rm -f libomniORB4.so
++ ln -s libomniORB4.so.3 libomniORB4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/orbcore'
+making install in src/lib/omniORB/dynamic...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/dynamic'
++ /usr/bin/install -c -m 0644 static/libomniDynamic4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomniDynamic4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomniDynamic4.so.3
++ ln -s libomniDynamic4.so.3.0 libomniDynamic4.so.3
++ rm -f libomniDynamic4.so
++ ln -s libomniDynamic4.so.3 libomniDynamic4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/dynamic'
+making install in src/lib/omniORB/codesets...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/codesets'
++ /usr/bin/install -c -m 0644 static/libomniCodeSets4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomniCodeSets4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomniCodeSets4.so.3
++ ln -s libomniCodeSets4.so.3.0 libomniCodeSets4.so.3
++ rm -f libomniCodeSets4.so
++ ln -s libomniCodeSets4.so.3 libomniCodeSets4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/codesets'
+making install in src/lib/omniORB/connections...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/connections'
++ /usr/bin/install -c -m 0644 static/libomniConnectionMgmt4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomniConnectionMgmt4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomniConnectionMgmt4.so.3
++ ln -s libomniConnectionMgmt4.so.3.0 libomniConnectionMgmt4.so.3
++ rm -f libomniConnectionMgmt4.so
++ ln -s libomniConnectionMgmt4.so.3 libomniConnectionMgmt4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/connections'
+making install in src/lib/omniORB/ziop...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/ziop'
++ /usr/bin/install -c -m 0644 static/libomniZIOP4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomniZIOP4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomniZIOP4.so.3
++ ln -s libomniZIOP4.so.3.0 libomniZIOP4.so.3
++ rm -f libomniZIOP4.so
++ ln -s libomniZIOP4.so.3 libomniZIOP4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/ziop'
+making install in src/lib/omniORB/ziopdynamic...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/ziopdynamic'
++ /usr/bin/install -c -m 0644 static/libomniZIOPDynamic4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libomniZIOPDynamic4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libomniZIOPDynamic4.so.3
++ ln -s libomniZIOPDynamic4.so.3.0 libomniZIOPDynamic4.so.3
++ rm -f libomniZIOPDynamic4.so
++ ln -s libomniZIOPDynamic4.so.3 libomniZIOPDynamic4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB/ziopdynamic'
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib/omniORB'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/src/lib'
+making install in src/appl...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/src/appl'
+making install in src/appl/omniNames...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/omniNames'
++ /usr/bin/install -c -m 0755 omniNames /usr/local/bin
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/omniNames'
+making install in src/appl/utils...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils'
+making install in src/appl/utils/genior...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/genior'
++ /usr/bin/install -c -m 0755 genior /usr/local/bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/genior'
+making install in src/appl/utils/catior...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/catior'
++ /usr/bin/install -c -m 0755 catior /usr/local/bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/catior'
+making install in src/appl/utils/convertior...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/convertior'
++ /usr/bin/install -c -m 0755 convertior /usr/local/bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/convertior'
+making install in src/appl/utils/nameclt...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/utils/nameclt'
++ /usr/bin/install -c -m 0755 nameclt /usr/local/bin
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils/nameclt'
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/utils'
+making install in src/appl/omniMapper...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/appl/omniMapper'
++ /usr/bin/install -c -m 0755 omniMapper /usr/local/bin
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl/omniMapper'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/src/appl'
+making install in src/services...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/src/services'
+making install in src/services/mklib...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/src/services/mklib'
++ ../../../../bin/scripts/omkdirhier /usr/local/include/COS
++ /usr/bin/install -c -m 0644 TimeBase.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosTime.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosEventComm.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosEventChannelAdmin.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosNotification.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosNotifyComm.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosNotifyFilter.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosNotifyChannelAdmin.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 CosLifeCycle.hh /usr/local/include/COS
++ /usr/bin/install -c -m 0644 ../../../../src/services/mklib/COS_sysdep.h /usr/local/include/COS
+making install in src/services/mklib/stublib...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/services/mklib/stublib'
++ /usr/bin/install -c -m 0644 static/libCOS4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libCOS4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libCOS4.so.3
++ ln -s libCOS4.so.3.0 libCOS4.so.3
++ rm -f libCOS4.so
++ ln -s libCOS4.so.3 libCOS4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/services/mklib/stublib'
+making install in src/services/mklib/dynstublib...
+make[4]: Entering directory '/opt/omniORB-4.3.0/build/src/services/mklib/dynstublib'
++ /usr/bin/install -c -m 0644 static/libCOSDynamic4.a /usr/local/lib
++ /usr/bin/install -c -m 0644 shared/libCOSDynamic4.so.3.0 /usr/local/lib
++ cd /usr/local/lib
++ rm -f libCOSDynamic4.so.3
++ ln -s libCOSDynamic4.so.3.0 libCOSDynamic4.so.3
++ rm -f libCOSDynamic4.so
++ ln -s libCOSDynamic4.so.3 libCOSDynamic4.so
+make[4]: Leaving directory '/opt/omniORB-4.3.0/build/src/services/mklib/dynstublib'
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/src/services/mklib'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/src/services'
+make[1]: Leaving directory '/opt/omniORB-4.3.0/build/src'
+making install in ./include...
+make[1]: Entering directory '/opt/omniORB-4.3.0/build/include'
++ /usr/bin/install -c -m 0644 ../../include/omnithread.h /usr/local/include
++ /usr/bin/install -c -m 0644 omniconfig.h /usr/local/include
+making install in include/omnithread...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/include/omnithread'
++ ../../../bin/scripts/omkdirhier /usr/local/include/omnithread
++ /usr/bin/install -c -m 0644 ../../../include/omnithread/nt.h /usr/local/include/omnithread
++ /usr/bin/install -c -m 0644 ../../../include/omnithread/posix.h /usr/local/include/omnithread
++ /usr/bin/install -c -m 0644 ../../../include/omnithread/pthread_nt.h /usr/local/include/omnithread
++ /usr/bin/install -c -m 0644 ../../../include/omnithread/atomic.h /usr/local/include/omnithread
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/include/omnithread'
+making install in include/omniORB4...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/include/omniORB4'
++ /usr/bin/install -c -m 0644 acconfig.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/ami.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/BiDirPolicy.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_AbstractBase.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Any.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Any_vartypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_BOA.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Context.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Current.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_DomainManager.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Environment.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Exception.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_ExceptionList.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Fixed.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_LocalObject.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_LocalObject_vartypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_NamedValue.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_ORB.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Object.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Object_vartypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Policy.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Principal.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_Request.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_ServerRequest.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_String.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_TypeCode.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_TypeCode_member.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_UnknownUserException.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_ValueBase.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_ValueBase_vartypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_basetypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_primitive_types.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_static_fns.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_sysdep.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_sysdep_auto.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_sysdep_trad.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/CORBA_vartypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/GIOP.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/IIOP.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/IOP.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/IOP_C.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/IOP_S.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/anyStream.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/boa.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/callDescriptor.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/callHandle.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/cdrStream.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/codeSets.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/corba_operators.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/connectionInfo.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/dynAny.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/finalCleanup.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/fixed.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/giopEndpoint.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/httpContext.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/httpCrypto.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/linkHacks.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/local_config.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/minorCode.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/objTracker.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniAsyncInvoker.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniIOR.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniInterceptors.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniInternal.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniORB.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniORBcompat.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniObjKey.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniObjRef.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniPolicy.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniServant.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniServer.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniTransport.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniURI.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniutilities.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/optionalFeatures.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/poa.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/poa_defs.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/poa_poa.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/proxyFactory.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/seqTemplatedecls.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/seqTemplatedefns.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/sslContext.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/streamOperators.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/stringtypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/templatedecls.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/templatedefns.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/tracedthread.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/userexception.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/valueFactoryManager.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/valueType.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/valueTemplatedecls.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/valueTemplatedefns.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/wstringtypes.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniConnectionMgmt.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/omniZIOP.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../include/omniORB4/ziopStubs.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/tcp/tcpAddress.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/tcp/tcpConnection.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/tcp/tcpEndpoint.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/tcp/tcpTransportImpl.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/unix/unixAddress.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/unix/unixConnection.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/unix/unixEndpoint.h /usr/local/include/omniORB4
++ /usr/bin/install -c -m 0644 ../../../src/lib/omniORB/orbcore/unix/unixTransportImpl.h /usr/local/include/omniORB4
+making install in include/omniORB4/internal...
+make[3]: Entering directory '/opt/omniORB-4.3.0/build/include/omniORB4/internal'
++ ../../../../bin/scripts/omkdirhier /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/GIOP_C.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/GIOP_S.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/SocketCollection.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/anonObject.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/codeSetUtil.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/context.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/corbaBoa.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/corbaOrb.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/dynAnyImpl.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/dynamicImplementation.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/dynamicLib.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/excepthandler.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/exceptiondefs.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopBiDir.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopMonitor.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopRendezvouser.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopRope.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopServer.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopStrand.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopStrandFlags.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopStream.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopStreamImpl.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/giopWorker.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/inProcessIdentity.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/initRefs.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/initialiser.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/invoker.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/libcWrapper.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/localIdentity.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/objectAdapter.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/objectStub.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/objectTable.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/omniCurrent.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/omniIdentity.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/orbOptions.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/orbParameters.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/poacurrentimpl.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/poaimpl.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/poamanager.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/pseudo.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/remoteIdentity.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/request.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/rmutex.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/shutdownIdentity.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/tcParser.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/transportRules.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/typecode.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/interceptors.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/tcpSocket.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/unknownValue.h /usr/local/include/omniORB4/internal
++ /usr/bin/install -c -m 0644 ../../../../include/omniORB4/internal/valueTrackerImpl.h /usr/local/include/omniORB4/internal
+make[3]: Leaving directory '/opt/omniORB-4.3.0/build/include/omniORB4/internal'
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/include/omniORB4'
+make[1]: Leaving directory '/opt/omniORB-4.3.0/build/include'
+making install in ./idl...
+make[1]: Entering directory '/opt/omniORB-4.3.0/build/idl'
++ ../../bin/scripts/omkdirhier /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/Naming.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/bootstrap.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/corbaidl.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/echo.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/ir.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/orb.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/poa.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/poa_include.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/boxes.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/pollable.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/messaging.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/messaging_policy.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/ziop.idl /usr/local/share/idl/omniORB
++ /usr/bin/install -c -m 0644 ../../idl/compression.idl /usr/local/share/idl/omniORB
+making install in idl/COS...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/idl/COS'
++ ../../../bin/scripts/omkdirhier /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosCollection.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosCompoundLifeCycle.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosConcurrencyControl.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosContainment.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosEventChannelAdmin.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosEventComm.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosExternalization.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosExternalizationContainment.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosExternalizationReference.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosGraphs.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosLicensingManager.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosLifeCycle.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosLifeCycleContainment.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosLifeCycleReference.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosNaming.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosNotification.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosNotifyChannelAdmin.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosNotifyComm.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosNotifyFilter.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosObjectIdentity.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistenceDDO.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistenceDS_CLI.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistencePDS.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistencePDS_DA.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistencePID.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistencePO.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPersistencePOM.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosPropertyService.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosQuery.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosQueryCollection.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosReference.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosRelationships.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosStream.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTSPortability.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTime.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTimerEvent.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTrading.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTradingDynamic.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTradingRepos.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTransactions.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTypedEventChannelAdmin.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTypedEventComm.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTypedNotifyChannelAdmin.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/CosTypedNotifyComm.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/DCE_CIOPSecurity.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/LifeCycleService.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/Lname-library.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/NRService.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/RDITestTypes.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/SECIOP.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/SSLIOP.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/Security.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/SecurityAdmin.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/SecurityLevel1.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/SecurityLevel2.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/SecurityReplaceable.idl /usr/local/share/idl/omniORB/COS
++ /usr/bin/install -c -m 0644 ../../../idl/COS/TimeBase.idl /usr/local/share/idl/omniORB/COS
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/idl/COS'
+make[1]: Leaving directory '/opt/omniORB-4.3.0/build/idl'
+making install in ./contrib...
+make[1]: Entering directory '/opt/omniORB-4.3.0/build/contrib'
+making install in contrib/pkgconfig...
+make[2]: Entering directory '/opt/omniORB-4.3.0/build/contrib/pkgconfig'
++ ../../../bin/scripts/omkdirhier /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omnithread3.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniORB4.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniDynamic4.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniCOS4.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniCOSDynamic4.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniConnectionMgmt4.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniZIOP4.pc /usr/local/lib/pkgconfig
++ /usr/bin/install -c -m 0644 omniZIOPDynamic4.pc /usr/local/lib/pkgconfig
+make[2]: Leaving directory '/opt/omniORB-4.3.0/build/contrib/pkgconfig'
+make[1]: Leaving directory '/opt/omniORB-4.3.0/build/contrib'
+Removing intermediate container 874bbd726237
+ ---> 5d86377c8ffb
+Step 10/10 : CMD [ "/usr/local/bin/omniNames", "-start", "-logdir", "/var/log/omniORB" ]
+ ---> Running in 62b299577e27
+Removing intermediate container 62b299577e27
+ ---> 82b489d8a262
+Successfully built 82b489d8a262
+Successfully tagged basebuildcorbaplayground:latest
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM basebuildcorbaplayground
+ ---> 82b489d8a262
+Step 2/2 : CMD [ "/usr/local/bin/omniNames", "-start", "-logdir", "/var/log/omniORB" ]
+ ---> Running in 11916cf03b11
+Removing intermediate container 11916cf03b11
+ ---> 12c9737fdf3c
+Successfully built 12c9737fdf3c
+Successfully tagged omninames:latest
+Sending build context to Docker daemon  79.87kB
+Step 1/4 : FROM basebuildcorbaplayground
+ ---> 82b489d8a262
+Step 2/4 : ADD echoNsServer /
+ ---> 7a7556dc21c4
+Step 3/4 : RUN     echo "InitRef = NameService=corbaname::nameservice:2809" > /etc/omniORB.cfg &&     echo "traceLevel = 10" >> /etc/omniORB.cfg &&     echo "supportBootstrapAgen = 1" >> /etc/omniORB.cfg
+ ---> Running in f7b276e5287f
+Removing intermediate container f7b276e5287f
+ ---> c70f85b26d49
+Step 4/4 : CMD [ "/echoNsServer" ]
+ ---> Running in 839780a514ca
+Removing intermediate container 839780a514ca
+ ---> 0acf0dbedad0
+Successfully built 0acf0dbedad0
+Successfully tagged echo-ns-server:latest
+Sending build context to Docker daemon  75.78kB
+Step 1/4 : FROM basebuildcorbaplayground
+ ---> 82b489d8a262
+Step 2/4 : ADD echoNsClient /
+ ---> 99a10f257f77
+Step 3/4 : RUN     echo "InitRef = NameService=corbaname::nameservice:2809" > /etc/omniORB.cfg &&     echo "traceLevel = 10" >> /etc/omniORB.cfg
+ ---> Running in b038005c32dd
+Removing intermediate container b038005c32dd
+ ---> abc5b3c51157
+Step 4/4 : CMD [ "/echoNsClient" ]
+ ---> Running in 36d5456198b8
+Removing intermediate container 36d5456198b8
+ ---> 789095d173d4
+Successfully built 789095d173d4
+Successfully tagged echo-ns-client:latest
+
