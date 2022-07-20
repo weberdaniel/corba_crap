@@ -1,3 +1,5 @@
+# 20/Jul/2022 Daniel Weber (Apache License 2.0)
+# Added this file and the corresponding .tar.gz archive
 FROM ubuntu:latest AS basebuildcorbaplayground
 
 COPY omniORB-4.3.0.tar.bz2 /opt/omniORB-4.3.0.tar.bz2

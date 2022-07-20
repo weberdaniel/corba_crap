@@ -1,4 +1,6 @@
 #!/bin/bash
+# Changed by Daniel Weber 20. Jul 2022:
+# podman replaced with docker, also added base folder
 
 cp ../build/echo-ns/echoNsServer echoNsServer/
 cp ../build/echo-ns/echoNsClient echoNsClient/
