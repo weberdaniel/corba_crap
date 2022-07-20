@@ -16,5 +16,7 @@ RUN echo '#!/bin/bash' > start.sh
 RUN echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib'
 RUN echo '/usr/local/bin/omniNames -start -logdir /var/log/omniORB' >> start.sh
 RUN chmod +rwx start.sh
+RUN mkdir -p /var/log/omniORB
+RUN chmod -R uoa+rwx /var/log/omniORB
 
 CMD [ "start.sh" ]
