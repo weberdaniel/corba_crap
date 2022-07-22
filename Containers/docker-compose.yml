@@ -14,6 +14,7 @@ services:
             - corba
         depends_on:
             - nameservice
+            - echo-ns-server
         
     nameservice:
         image: omninames:latest
